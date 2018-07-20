@@ -36,12 +36,6 @@ int main (void)
     WiringPiWrapper::setPinModePi(scheduler.segmentDisplay.dot, true);
     
     while(true) {
-        if(scheduler.door.high() == true){
-            puts("Door open\n");
-        } else {
-            puts("Door closed\n");
-        }
-        
         scheduler.updatePins();
         //delay(1000);
     }

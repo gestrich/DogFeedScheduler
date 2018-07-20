@@ -11,9 +11,7 @@
 
 
 void SevenSegementDisplay::showDigit(int digit){
-    printf("Show number called with %d\n", digit);
     fflush(stdout); 
-    //WiringPiWrapper::writePi (gpioIndex, true);
     WiringPiWrapper::writePi(top, false);
     WiringPiWrapper::writePi(topLeft, false);
     WiringPiWrapper::writePi(topRight, false);
