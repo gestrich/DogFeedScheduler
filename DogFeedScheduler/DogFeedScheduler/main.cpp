@@ -83,9 +83,9 @@ void writePi(int gpio_index, bool high){
     
 #if RASPBERRY_PI
     if(high){
-        digitalWrite(gpio_index);        
+        digitalWrite(gpio_index, HIGH);        
     } else {
-        digitalWrite(gpio_index);
+        digitalWrite(gpio_index, LOW);
     }
 #endif
     
@@ -251,7 +251,8 @@ void FeedingScheduler::updatePins(){
 int main (void)
 {
     printf("***Starting Feeding Scheduler***\n");
-#if RASPERBERRY_PI
+#if RASPBERRY_PI
+    puts("setting up wiring pi");
     wiringPiSetupGpio ();
 #endif
     std::vector<PressEvent> pressEvents; 
@@ -267,7 +268,7 @@ int main (void)
 //    }
     
     scheduler.digit = Digit();
-#if RASPERBERRY_PI
+#if RASPBERRY_PI
     pinMode(scheduler.digit.top, OUTPUT);
     pinMode(scheduler.digit.topLeft, OUTPUT);
     pinMode(scheduler.digit.topRight, OUTPUT);
@@ -286,7 +287,7 @@ int main (void)
         }
         
         scheduler.updatePins();
-//        delay(1000);
+        //delay(1000);
     }
     
     return 0;
