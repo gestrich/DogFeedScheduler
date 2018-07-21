@@ -41,7 +41,7 @@ int FeedingScheduler::completedFeedingsNow(){
 void FeedingScheduler::updatePins(){
     int completed = completedFeedingsNow();
     int ideal = idealFeedingCountNow();
-    int dueFeedings = ideal = completed;
+    int dueFeedings = ideal - completed;
     segmentDisplay.showDigit(completed % 10);
     
     bool doorOpened = door.high();
@@ -52,13 +52,10 @@ void FeedingScheduler::updatePins(){
     }
     
     if(doorOpened){
-                puts("Setting LED state to blink");
         led1.mode = LedBlink; //blinking for open door
     } else if (dueFeedings > 0) {
-        puts( ("Setting LED state to solid. Due feedings = " + std::to_string(dueFeedings)).c_str());
         led1.mode = LedSolid; //solid for feeding due
     } else {
-        puts("Setting LED state to off");
         led1.mode = LedOff; //off for all good
     }
     
