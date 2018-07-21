@@ -9,6 +9,18 @@
 #include "InputDevice.hpp"
 #include "WiringPiWrapper.hpp"
 
+InputEvent * InputDevice::checkForEvent(){
+
+    bool currentlyHigh = high();
+    if (currentlyHigh != lastProcessedWasHigh){
+        //Door has been opened. Record the event.
+        lastProcessedWasHigh = currentlyHigh;
+        return new InputEvent();
+        
+    } else {
+        return nullptr;
+    }
+}
 
 bool InputDevice::high(){
     return (WiringPiWrapper::readPi(gpioIndex) == 1);

@@ -40,13 +40,10 @@ void FeedingScheduler::updatePins(){
     segmentDisplay.showDigit(completed % 10);
     
     bool doorOpened = door.high();
-    if (doorOpened && door.lastHigh == false){
-        //Door has been opened. Record the event.
-        InputEvent event = InputEvent(); 
-        events.push_back(event);
+    InputEvent *event = door.checkForEvent();
+    if(event){
+        events.push_back(*event);
     }
-    
-    door.lastHigh = doorOpened;
     
     if(doorOpened){
         led1.updateState(1); //blinking for open door

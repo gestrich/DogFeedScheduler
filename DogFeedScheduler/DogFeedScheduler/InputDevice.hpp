@@ -12,11 +12,13 @@
 #include <stdio.h>
 #include "WiringPiWrapper.hpp"
 #include "DateTimeUtilities.hpp"
+#include "InputEvent.hpp"
 
 class InputDevice {
+    bool lastProcessedWasHigh;
 public:
     int gpioIndex = 0;
-    bool lastHigh;
+    InputEvent * checkForEvent();
     
     bool high();
     void setHigh(bool high);
