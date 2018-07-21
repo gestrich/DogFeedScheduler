@@ -27,6 +27,10 @@ public:
     InputDevice decrementButton;
     SevenSegementDisplay segmentDisplay;
     Led led1;  
+    static void testCPlusPlusFunction()
+    {
+        puts("Test C++ function");
+    }
 };
 
 #endif /* FeedingScheduler_hpp */

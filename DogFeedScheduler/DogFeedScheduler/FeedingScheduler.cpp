@@ -10,13 +10,13 @@
 #include <string>
 #include <functional>
 
-void testCallback(void) {
+void testCcallback(void) {
     puts("Callback called");
 }
 
 FeedingScheduler::FeedingScheduler()
 :door(25), decrementButton(6), led1(18){
-    WiringPiWrapper::registerCallback(decrementButton.gpioIndex, EdgeFalling, testCallback);
+    WiringPiWrapper::registerCallback(decrementButton.gpioIndex, EdgeFalling, &testCPlusPlusFunction);
     segmentDisplay = SevenSegementDisplay();
 }
 
