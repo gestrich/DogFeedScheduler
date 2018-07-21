@@ -25,7 +25,7 @@ public:
     static void setPinModePi(int gpio_index, bool output);
     static void writePi(int gpio_index, bool high);
     static bool readPi(int gpio_index);
-    static void registerCallback(int gpio_pin, EdgeType edgeType, std::function<void()> callback);
+    static void registerCallback(int gpio_pin, EdgeType edgeType, void (*function)(void));
 };
 
 
