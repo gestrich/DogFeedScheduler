@@ -7,7 +7,7 @@
 //
 
 #include "FeedingScheduler.hpp"
-//#include "DateTimeUtilities.h"
+#include <string>
 
 FeedingScheduler::FeedingScheduler()
 :door(25), decrementButton(6), led1(18){
@@ -55,7 +55,7 @@ void FeedingScheduler::updatePins(){
                 puts("Setting LED state to blink");
         led1.mode = LedBlink; //blinking for open door
     } else if (dueFeedings > 0) {
-                puts("Setting LED state to solid");
+        puts( ("Setting LED state to solid. Due feedings = " + std::to_string(dueFeedings)).c_str());
         led1.mode = LedSolid; //solid for feeding due
     } else {
         puts("Setting LED state to off");
