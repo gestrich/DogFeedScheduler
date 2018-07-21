@@ -62,7 +62,7 @@ void FeedingScheduler::updatePins(){
     led1.updatePinOutput();
     
     InputEvent *decrementEvent = decrementButton.checkForEvent();
-    if(decrementEvent && decrementEvent->eventType == LowToHigh){
+    if(decrementEvent && decrementEvent->eventType == LowToHigh && events.empty() == false){
         events.pop_back();
     }
 }
