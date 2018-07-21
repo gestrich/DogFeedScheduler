@@ -9,6 +9,28 @@
 #include "FeedingScheduler.hpp"
 //#include "DateTimeUtilities.h"
 
+FeedingScheduler::FeedingScheduler(){
+    WiringPiWrapper::setupGPIO();
+    
+    led1 = Led();
+    led1.gpioIndex = 18;
+    door = InputDevice();
+    door.gpioIndex = 25;
+    
+    decrementButton = InputDevice();
+    decrementButton.gpioIndex = 15;
+    
+    segmentDisplay = SevenSegementDisplay();
+    
+    WiringPiWrapper::setPinModePi(segmentDisplay.top, true);
+    WiringPiWrapper::setPinModePi(segmentDisplay.topLeft, true);
+    WiringPiWrapper::setPinModePi(segmentDisplay.topRight, true);
+    WiringPiWrapper::setPinModePi(segmentDisplay.middle, true);
+    WiringPiWrapper::setPinModePi(segmentDisplay.bottomLeft, true);
+    WiringPiWrapper::setPinModePi(segmentDisplay.bottomRight, true);
+    WiringPiWrapper::setPinModePi(segmentDisplay.bottom, true);
+    WiringPiWrapper::setPinModePi(segmentDisplay.dot, true);
+}
 
 int FeedingScheduler::idealFeedingCountNow(){
     int currentHour = DateTimeUtilities::currentHourIndex();
@@ -40,10 +62,10 @@ void FeedingScheduler::updatePins(){
     segmentDisplay.showDigit(completed % 10);
     
     bool doorOpened = door.high();
-    InputEvent *event = door.checkForEvent();
+    InputEvent *doorEvent = door.checkForEvent();
     
-    if(event && event->eventType == LowToHigh){
-        events.push_back(*event);
+    if(doorEvent && doorEvent->eventType == LowToHigh){
+        events.push_back(*doorEvent);
     }
     
     if(doorOpened){
@@ -55,4 +77,10 @@ void FeedingScheduler::updatePins(){
     }
     
     led1.updatePinOutput();
+    
+    InputEvent *decrementEvent = decrementButton.checkForEvent();
+    
+    if(decrementEvent && decrementEvent->eventType == LowToHigh){
+        puts("Button Pressed");
+    }
 }

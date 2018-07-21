@@ -18,11 +18,13 @@
 
 class FeedingScheduler {
 public:
+    FeedingScheduler();
     std::vector<InputEvent> events;
     int idealFeedingCountNow();
     int completedFeedingsNow();
     void updatePins();  
     InputDevice door;    
+    InputDevice decrementButton;
     SevenSegementDisplay segmentDisplay;
     Led led1;  
 };
