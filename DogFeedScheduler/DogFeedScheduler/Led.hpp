@@ -10,9 +10,12 @@
 #define Led_hpp
 
 #include <stdio.h>
-
+#include "WiringPiWrapper.hpp"
 class Led {
 public:
+    Led(){
+        WiringPiWrapper::setupGPIO();
+    };
     int gpioIndex = 0;
     int state = 0; // 0=off, 1=blink, 2=steady
     void updateState(int updatedState);

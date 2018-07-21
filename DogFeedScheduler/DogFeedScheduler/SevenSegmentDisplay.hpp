@@ -10,9 +10,13 @@
 #define SevenSegmentDisplay_hpp
 
 #include <stdio.h>
+#include "WiringPiWrapper.hpp"
 
 class SevenSegementDisplay {
 public:
+    SevenSegementDisplay(){
+      WiringPiWrapper::setupGPIO();  
+    };
     int top = 20;
     int topLeft = 24;
     int topRight = 23;

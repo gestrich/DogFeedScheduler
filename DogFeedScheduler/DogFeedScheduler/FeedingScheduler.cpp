@@ -9,16 +9,14 @@
 #include "FeedingScheduler.hpp"
 //#include "DateTimeUtilities.h"
 
-FeedingScheduler::FeedingScheduler(){
-    WiringPiWrapper::setupGPIO();
+FeedingScheduler::FeedingScheduler()
+:door(25), decrementButton(6){
     
     led1 = Led();
     led1.gpioIndex = 18;
-    door = InputDevice();
-    door.gpioIndex = 25;
+//    door = InputDevice(25);
     
-    decrementButton = InputDevice();
-    decrementButton.gpioIndex = 15;
+//    decrementButton = InputDevice(6);
     
     segmentDisplay = SevenSegementDisplay();
     

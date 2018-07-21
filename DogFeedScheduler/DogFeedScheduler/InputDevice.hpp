@@ -17,7 +17,9 @@
 class InputDevice {
     bool lastProcessedWasHigh;
 public:
-    InputDevice(){
+    InputDevice(int index){
+        WiringPiWrapper::setupGPIO();
+        gpioIndex = index;
         lastProcessedWasHigh = high();
     };
     int gpioIndex = 0;
