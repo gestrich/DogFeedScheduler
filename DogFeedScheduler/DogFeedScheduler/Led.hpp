@@ -19,10 +19,12 @@ enum LEDMode {
 };
 
 class Led {
+    LEDMode mode = LedOff;;
 public:
     Led(int index);
     int gpioIndex = 0;
-    LEDMode mode = LedOff;
+    LEDMode getMode();
+    void setMode(LEDMode newMode);
     void updatePinOutput();
 };
 

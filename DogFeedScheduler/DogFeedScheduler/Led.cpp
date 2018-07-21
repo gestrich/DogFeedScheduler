@@ -16,6 +16,15 @@ Led::Led(int index){
     WiringPiWrapper::setPinModePi(index, true);
 }
 
+LEDMode Led::getMode(){
+    return mode;
+}
+
+void Led::setMode(LEDMode newMode){
+    mode = newMode;
+    updatePinOutput();
+}
+
 void Led::updatePinOutput(){
     if (mode == LedOff){
         WiringPiWrapper::writePi (gpioIndex, false);

@@ -52,18 +52,17 @@ void FeedingScheduler::updatePins(){
     }
     
     if(doorOpened){
-        led1.mode = LedBlink; //blinking for open door
+        led1.setMode(LedBlink); //blinking for open door
     } else if (dueFeedings > 0) {
-        led1.mode = LedSolid; //solid for feeding due
+        led1.setMode(LedSolid); //solid for feeding due
     } else {
-        led1.mode = LedOff; //off for all good
+        led1.setMode(LedOff); //off for all good
     }
     
     led1.updatePinOutput();
     
     InputEvent *decrementEvent = decrementButton.checkForEvent();
-    
     if(decrementEvent && decrementEvent->eventType == LowToHigh){
-        puts("Button Pressed");
+        events.pop_back();
     }
 }
