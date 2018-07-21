@@ -86,6 +86,6 @@ void WiringPiWrapper::registerCallback(int gpio_pin, EdgeType edgeType, std::fun
             puts("Unknown edge type");
     }
     
-    wiringPiISR(gpio_pin, edgeTypeInt, &callback);
+    wiringPiISR(gpio_pin, edgeTypeInt, &callback.target());
 #endif    
 }
