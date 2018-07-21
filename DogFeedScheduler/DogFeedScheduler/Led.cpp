@@ -35,7 +35,9 @@ void Led::updatePinOutput(){
             WiringPiWrapper::writePi (gpioIndex, true);
         }
         
-        sleep(1.0);
+        int microsecondToSleep = 200;
+        static int nanosecondsInMicrosecond = 1000;
+        usleep(microsecondToSleep * nanosecondsInMicrosecond); //usleep is in nanoseconds
     } else if (mode == LedSolid){
         WiringPiWrapper::writePi (gpioIndex, true);
     }
