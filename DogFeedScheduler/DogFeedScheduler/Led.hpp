@@ -11,12 +11,18 @@
 
 #include <stdio.h>
 #include "WiringPiWrapper.hpp"
+
+enum LEDMode {
+    LedOff,
+    LedSolid,
+    LedBlink
+};
+
 class Led {
 public:
     Led(int index);
     int gpioIndex = 0;
-    int state = 0; // 0=off, 1=blink, 2=steady
-    void updateState(int updatedState);
+    LEDMode mode = LedOff;
     void updatePinOutput();
 };
 

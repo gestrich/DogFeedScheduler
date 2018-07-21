@@ -16,14 +16,10 @@ Led::Led(int index){
     WiringPiWrapper::setPinModePi(index, true);
 }
 
-void Led::updateState(int updatedState){
-    state = updatedState;
-}
-
 void Led::updatePinOutput(){
-    if (state == 0){
+    if (mode == LedOff){
         WiringPiWrapper::writePi (gpioIndex, false);
-    } else if (state == 1){
+    } else if (mode == LedBlink){
         if (WiringPiWrapper::readPi(gpioIndex)){
             WiringPiWrapper::writePi (gpioIndex, false);
         } else {
@@ -31,7 +27,7 @@ void Led::updatePinOutput(){
         }
         
         sleep(1.0);
-    } else if (state == 2){
+    } else if (mode == LedSolid){
         WiringPiWrapper::writePi (gpioIndex, true);
     }
 }

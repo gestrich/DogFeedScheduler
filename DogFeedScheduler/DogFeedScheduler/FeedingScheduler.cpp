@@ -52,11 +52,14 @@ void FeedingScheduler::updatePins(){
     }
     
     if(doorOpened){
-        led1.updateState(1); //blinking for open door
+                puts("Setting LED state to blink");
+        led1.mode = LedBlink; //blinking for open door
     } else if (dueFeedings > 0) {
-        led1.updateState(2); //solid for feeding due
+                puts("Setting LED state to solid");
+        led1.mode = LedSolid; //solid for feeding due
     } else {
-        led1.updateState(0); //off for all good
+        puts("Setting LED state to off");
+        led1.mode = LedOff; //off for all good
     }
     
     led1.updatePinOutput();
