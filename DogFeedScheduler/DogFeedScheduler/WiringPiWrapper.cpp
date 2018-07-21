@@ -65,7 +65,7 @@ bool WiringPiWrapper::readPi(int gpio_index){
     return toRet;
 }
 
-void WiringPiWrapper::registerCallback(int gpio_pin, EdgeType edgeType, std::function<void()> callback){
+void WiringPiWrapper::registerCallback(int gpio_pin, EdgeType edgeType, void (*function)(void)){
 #if RASPBERRY_PI
     //INT_EDGE_FALLING, INT_EDGE_RISING, INT_EDGE_BOTH or INT_EDGE_SETUP
     int edgeTypeInt =  INT_EDGE_FALLING;
@@ -86,6 +86,6 @@ void WiringPiWrapper::registerCallback(int gpio_pin, EdgeType edgeType, std::fun
             puts("Unknown edge type");
     }
     
-    wiringPiISR(gpio_pin, edgeTypeInt, &callback.target());
+    wiringPiISR(gpio_pin, edgeTypeInt, &function);
 #endif    
 }

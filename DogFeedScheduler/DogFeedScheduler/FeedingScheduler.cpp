@@ -16,8 +16,7 @@ void testCallback(void) {
 
 FeedingScheduler::FeedingScheduler()
 :door(25), decrementButton(6), led1(18){
-    std::function<void()> fp = testCallback;
-    WiringPiWrapper::registerCallback(decrementButton.gpioIndex, EdgeFalling, fp);
+    WiringPiWrapper::registerCallback(decrementButton.gpioIndex, EdgeFalling, testCallback);
     segmentDisplay = SevenSegementDisplay();
 }
 
