@@ -8,10 +8,16 @@
 
 #include "FeedingScheduler.hpp"
 #include <string>
+#include <functional>
+
+void testCallback(void) {
+    puts("Callback called");
+}
 
 FeedingScheduler::FeedingScheduler()
 :door(25), decrementButton(6), led1(18){
-    
+    std::function<void()> fp = testCallback;
+    WiringPiWrapper::registerCallback(decrementButton.gpioIndex, EdgeFalling, fp);
     segmentDisplay = SevenSegementDisplay();
 }
 

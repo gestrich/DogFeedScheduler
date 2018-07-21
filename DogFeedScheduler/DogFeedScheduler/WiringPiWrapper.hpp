@@ -10,6 +10,14 @@
 #define WiringPiWrapper_hpp
 
 #include <stdio.h>
+#include <functional>
+
+enum EdgeType {
+    EdgeFalling, 
+    EdgeRising, 
+    EdgeBoth, 
+    EdgeSetup
+};
 
 class WiringPiWrapper {
 public:
@@ -17,6 +25,7 @@ public:
     static void setPinModePi(int gpio_index, bool output);
     static void writePi(int gpio_index, bool high);
     static bool readPi(int gpio_index);
+    static void registerCallback(int gpio_pin, EdgeType edgeType, std::function<void()> callback);
 };
 
 
