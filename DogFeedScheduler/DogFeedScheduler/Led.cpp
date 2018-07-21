@@ -8,6 +8,12 @@
 
 #include "Led.hpp"
 #include "WiringPiWrapper.hpp"
+#include <unistd.h>
+
+Led::Led(int index){
+    WiringPiWrapper::setupGPIO();
+    gpioIndex = index;
+}
 
 void Led::updateState(int updatedState){
     state = updatedState;
@@ -22,6 +28,8 @@ void Led::updatePinOutput(){
         } else {
             WiringPiWrapper::writePi (gpioIndex, true);
         }
+        
+        sleep(1.0);
     } else if (state == 2){
         WiringPiWrapper::writePi (gpioIndex, true);
     }

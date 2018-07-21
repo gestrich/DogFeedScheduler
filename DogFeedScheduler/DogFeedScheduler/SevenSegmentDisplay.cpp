@@ -11,7 +11,7 @@
 
 
 void SevenSegementDisplay::showDigit(int digit){
-    fflush(stdout); 
+    
     WiringPiWrapper::writePi(top, false);
     WiringPiWrapper::writePi(topLeft, false);
     WiringPiWrapper::writePi(topRight, false);

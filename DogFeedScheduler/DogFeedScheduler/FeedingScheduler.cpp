@@ -10,13 +10,7 @@
 //#include "DateTimeUtilities.h"
 
 FeedingScheduler::FeedingScheduler()
-:door(25), decrementButton(6){
-    
-    led1 = Led();
-    led1.gpioIndex = 18;
-//    door = InputDevice(25);
-    
-//    decrementButton = InputDevice(6);
+:door(25), decrementButton(6), led1(18){
     
     segmentDisplay = SevenSegementDisplay();
     

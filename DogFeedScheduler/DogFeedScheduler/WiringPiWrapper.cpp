@@ -20,9 +20,10 @@
 void WiringPiWrapper::setupGPIO(){
     
 #if RASPBERRY_PI
-    puts("setting up wiring pi");
+    
     static bool initialized;
     if (!initialized) {
+        puts("setting up wiring pi");
         initialized = true;
         wiringPiSetupGpio ();
     }
