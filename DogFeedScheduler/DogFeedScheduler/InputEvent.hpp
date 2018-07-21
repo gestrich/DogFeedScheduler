@@ -12,11 +12,17 @@
 #include <stdio.h>
 #include <ctime>
 
+enum InputEventType {
+    LowToHigh,
+    HighToLow
+};
+
 class InputEvent {
 public:
     bool today();
     time_t pressTime = time(0);
     int minute();
+    InputEventType eventType;
 };
 
 #endif /* InputEvent_hpp */

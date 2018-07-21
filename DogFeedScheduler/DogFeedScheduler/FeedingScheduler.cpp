@@ -41,7 +41,8 @@ void FeedingScheduler::updatePins(){
     
     bool doorOpened = door.high();
     InputEvent *event = door.checkForEvent();
-    if(event){
+    
+    if(event && event->eventType == LowToHigh){
         events.push_back(*event);
     }
     

@@ -15,6 +15,13 @@ InputEvent * InputDevice::checkForEvent(){
     if (currentlyHigh != lastProcessedWasHigh){
         //Door has been opened. Record the event.
         lastProcessedWasHigh = currentlyHigh;
+        InputEvent event = InputEvent();
+        if (currentlyHigh){
+            event.eventType = LowToHigh;    
+        } else {
+            event.eventType = HighToLow;
+        }
+         
         return new InputEvent();
         
     } else {
