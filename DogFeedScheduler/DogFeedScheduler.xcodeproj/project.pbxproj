@@ -32,18 +32,18 @@
 /* Begin PBXFileReference section */
 		A9A563DE21028A77005EA4F9 /* DogFeedScheduler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DogFeedScheduler; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A563E121028A77005EA4F9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A9A563E8210292EB005EA4F9 /* InputDevice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputDevice.cpp; path = ../InputDevice.cpp; sourceTree = "<group>"; };
-		A9A563E9210292EB005EA4F9 /* InputDevice.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = InputDevice.hpp; path = ../InputDevice.hpp; sourceTree = "<group>"; };
+		A9A563E8210292EB005EA4F9 /* InputDevice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputDevice.cpp; sourceTree = "<group>"; };
+		A9A563E9210292EB005EA4F9 /* InputDevice.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputDevice.hpp; sourceTree = "<group>"; };
 		A9A563EB2102937F005EA4F9 /* WiringPiWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WiringPiWrapper.cpp; sourceTree = "<group>"; };
 		A9A563EC2102937F005EA4F9 /* WiringPiWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WiringPiWrapper.hpp; sourceTree = "<group>"; };
-		A9A563EE21029DBE005EA4F9 /* SevenSegmentDisplay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = SevenSegmentDisplay.cpp; path = ../SevenSegmentDisplay.cpp; sourceTree = "<group>"; };
-		A9A563EF21029DBE005EA4F9 /* SevenSegmentDisplay.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = SevenSegmentDisplay.hpp; path = ../SevenSegmentDisplay.hpp; sourceTree = "<group>"; };
-		A9A563F321029EB5005EA4F9 /* Led.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Led.cpp; path = ../Led.cpp; sourceTree = "<group>"; };
-		A9A563F421029EB5005EA4F9 /* Led.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Led.hpp; path = ../Led.hpp; sourceTree = "<group>"; };
+		A9A563EE21029DBE005EA4F9 /* SevenSegmentDisplay.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SevenSegmentDisplay.cpp; sourceTree = "<group>"; };
+		A9A563EF21029DBE005EA4F9 /* SevenSegmentDisplay.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SevenSegmentDisplay.hpp; sourceTree = "<group>"; };
+		A9A563F321029EB5005EA4F9 /* Led.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Led.cpp; sourceTree = "<group>"; };
+		A9A563F421029EB5005EA4F9 /* Led.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Led.hpp; sourceTree = "<group>"; };
 		A9A563F621029F33005EA4F9 /* FeedingScheduler.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FeedingScheduler.cpp; sourceTree = "<group>"; };
 		A9A563F721029F33005EA4F9 /* FeedingScheduler.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FeedingScheduler.hpp; sourceTree = "<group>"; };
-		A9A563F921029FE5005EA4F9 /* InputEvent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = InputEvent.cpp; path = ../InputEvent.cpp; sourceTree = "<group>"; };
-		A9A563FA21029FE5005EA4F9 /* InputEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = InputEvent.hpp; path = ../InputEvent.hpp; sourceTree = "<group>"; };
+		A9A563F921029FE5005EA4F9 /* InputEvent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputEvent.cpp; sourceTree = "<group>"; };
+		A9A563FA21029FE5005EA4F9 /* InputEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputEvent.hpp; sourceTree = "<group>"; };
 		A9A563FE2102A227005EA4F9 /* DateTimeUtilities.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DateTimeUtilities.cpp; sourceTree = "<group>"; };
 		A9A563FF2102A227005EA4F9 /* DateTimeUtilities.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DateTimeUtilities.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +59,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A99AB8492103562C00B54EFA /* Output */ = {
+			isa = PBXGroup;
+			children = (
+				A9A563EE21029DBE005EA4F9 /* SevenSegmentDisplay.cpp */,
+				A9A563EF21029DBE005EA4F9 /* SevenSegmentDisplay.hpp */,
+				A9A563F321029EB5005EA4F9 /* Led.cpp */,
+				A9A563F421029EB5005EA4F9 /* Led.hpp */,
+			);
+			name = Output;
+			sourceTree = "<group>";
+		};
+		A99AB84A2103563A00B54EFA /* Input */ = {
+			isa = PBXGroup;
+			children = (
+				A9A563E8210292EB005EA4F9 /* InputDevice.cpp */,
+				A9A563E9210292EB005EA4F9 /* InputDevice.hpp */,
+				A9A563F921029FE5005EA4F9 /* InputEvent.cpp */,
+				A9A563FA21029FE5005EA4F9 /* InputEvent.hpp */,
+			);
+			name = Input;
+			sourceTree = "<group>";
+		};
 		A9A563D521028A77005EA4F9 = {
 			isa = PBXGroup;
 			children = (
@@ -78,8 +100,8 @@
 		A9A563E021028A77005EA4F9 /* DogFeedScheduler */ = {
 			isa = PBXGroup;
 			children = (
-				A9A563F221029E7F005EA4F9 /* Output */,
-				A9A563F121029E65005EA4F9 /* Input */,
+				A99AB84A2103563A00B54EFA /* Input */,
+				A99AB8492103562C00B54EFA /* Output */,
 				A9A563E121028A77005EA4F9 /* main.cpp */,
 				A9A563F621029F33005EA4F9 /* FeedingScheduler.cpp */,
 				A9A563F721029F33005EA4F9 /* FeedingScheduler.hpp */,
@@ -89,28 +111,6 @@
 				A9A563FF2102A227005EA4F9 /* DateTimeUtilities.hpp */,
 			);
 			path = DogFeedScheduler;
-			sourceTree = "<group>";
-		};
-		A9A563F121029E65005EA4F9 /* Input */ = {
-			isa = PBXGroup;
-			children = (
-				A9A563E8210292EB005EA4F9 /* InputDevice.cpp */,
-				A9A563E9210292EB005EA4F9 /* InputDevice.hpp */,
-				A9A563F921029FE5005EA4F9 /* InputEvent.cpp */,
-				A9A563FA21029FE5005EA4F9 /* InputEvent.hpp */,
-			);
-			path = Input;
-			sourceTree = "<group>";
-		};
-		A9A563F221029E7F005EA4F9 /* Output */ = {
-			isa = PBXGroup;
-			children = (
-				A9A563EE21029DBE005EA4F9 /* SevenSegmentDisplay.cpp */,
-				A9A563EF21029DBE005EA4F9 /* SevenSegmentDisplay.hpp */,
-				A9A563F321029EB5005EA4F9 /* Led.cpp */,
-				A9A563F421029EB5005EA4F9 /* Led.hpp */,
-			);
-			path = Output;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
