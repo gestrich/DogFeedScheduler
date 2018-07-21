@@ -14,9 +14,7 @@
 
 class SevenSegementDisplay {
 public:
-    SevenSegementDisplay(){
-      WiringPiWrapper::setupGPIO();  
-    };
+    SevenSegementDisplay();
     int top = 20;
     int topLeft = 24;
     int topRight = 23;

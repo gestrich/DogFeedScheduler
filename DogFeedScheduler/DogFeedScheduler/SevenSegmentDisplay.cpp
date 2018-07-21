@@ -10,6 +10,19 @@
 #include "WiringPiWrapper.hpp"
 
 
+SevenSegementDisplay::SevenSegementDisplay(){
+    WiringPiWrapper::setupGPIO();
+    
+    WiringPiWrapper::setPinModePi(top, true);
+    WiringPiWrapper::setPinModePi(topLeft, true);
+    WiringPiWrapper::setPinModePi(topRight, true);
+    WiringPiWrapper::setPinModePi(middle, true);
+    WiringPiWrapper::setPinModePi(bottomLeft, true);
+    WiringPiWrapper::setPinModePi(bottomRight, true);
+    WiringPiWrapper::setPinModePi(bottom, true);
+    WiringPiWrapper::setPinModePi(dot, true);
+}
+
 void SevenSegementDisplay::showDigit(int digit){
     
     WiringPiWrapper::writePi(top, false);

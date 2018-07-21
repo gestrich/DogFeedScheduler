@@ -20,6 +20,7 @@ public:
     InputDevice(int index){
         WiringPiWrapper::setupGPIO();
         gpioIndex = index;
+        WiringPiWrapper::setPinModePi(index, false);
         lastProcessedWasHigh = high();
     };
     int gpioIndex = 0;

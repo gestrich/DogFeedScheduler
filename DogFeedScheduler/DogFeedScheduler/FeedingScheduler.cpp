@@ -13,15 +13,6 @@ FeedingScheduler::FeedingScheduler()
 :door(25), decrementButton(6), led1(18){
     
     segmentDisplay = SevenSegementDisplay();
-    
-    WiringPiWrapper::setPinModePi(segmentDisplay.top, true);
-    WiringPiWrapper::setPinModePi(segmentDisplay.topLeft, true);
-    WiringPiWrapper::setPinModePi(segmentDisplay.topRight, true);
-    WiringPiWrapper::setPinModePi(segmentDisplay.middle, true);
-    WiringPiWrapper::setPinModePi(segmentDisplay.bottomLeft, true);
-    WiringPiWrapper::setPinModePi(segmentDisplay.bottomRight, true);
-    WiringPiWrapper::setPinModePi(segmentDisplay.bottom, true);
-    WiringPiWrapper::setPinModePi(segmentDisplay.dot, true);
 }
 
 int FeedingScheduler::idealFeedingCountNow(){

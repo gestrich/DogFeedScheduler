@@ -13,6 +13,7 @@
 Led::Led(int index){
     WiringPiWrapper::setupGPIO();
     gpioIndex = index;
+    WiringPiWrapper::setPinModePi(index, true);
 }
 
 void Led::updateState(int updatedState){
