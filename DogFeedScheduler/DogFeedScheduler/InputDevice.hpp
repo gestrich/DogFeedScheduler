@@ -17,6 +17,9 @@
 class InputDevice {
     bool lastProcessedWasHigh;
 public:
+    InputDevice(){
+        lastProcessedWasHigh = high();
+    };
     int gpioIndex = 0;
     InputEvent * checkForEvent();
     
