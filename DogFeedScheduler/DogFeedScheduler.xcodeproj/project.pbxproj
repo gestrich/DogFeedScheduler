@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A981FB4B216D50FF0097D3DE /* FeedingKeyValueStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A981FB49216D50FF0097D3DE /* FeedingKeyValueStore.cpp */; };
 		A9A563E221028A77005EA4F9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563E121028A77005EA4F9 /* main.cpp */; };
 		A9A563EA210292EB005EA4F9 /* InputDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563E8210292EB005EA4F9 /* InputDevice.cpp */; };
 		A9A563ED2102937F005EA4F9 /* WiringPiWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563EB2102937F005EA4F9 /* WiringPiWrapper.cpp */; };
@@ -30,6 +31,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A981FB49216D50FF0097D3DE /* FeedingKeyValueStore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FeedingKeyValueStore.cpp; sourceTree = "<group>"; };
+		A981FB4A216D50FF0097D3DE /* FeedingKeyValueStore.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FeedingKeyValueStore.hpp; sourceTree = "<group>"; };
 		A9A563DE21028A77005EA4F9 /* DogFeedScheduler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DogFeedScheduler; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A563E121028A77005EA4F9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A9A563E8210292EB005EA4F9 /* InputDevice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputDevice.cpp; sourceTree = "<group>"; };
@@ -107,6 +110,8 @@
 				A9A563F721029F33005EA4F9 /* FeedingScheduler.hpp */,
 				A9A563EC2102937F005EA4F9 /* WiringPiWrapper.hpp */,
 				A9A563EB2102937F005EA4F9 /* WiringPiWrapper.cpp */,
+				A981FB49216D50FF0097D3DE /* FeedingKeyValueStore.cpp */,
+				A981FB4A216D50FF0097D3DE /* FeedingKeyValueStore.hpp */,
 				A9A563FE2102A227005EA4F9 /* DateTimeUtilities.cpp */,
 				A9A563FF2102A227005EA4F9 /* DateTimeUtilities.hpp */,
 			);
@@ -171,6 +176,7 @@
 			files = (
 				A9A563EA210292EB005EA4F9 /* InputDevice.cpp in Sources */,
 				A9A563FB21029FE5005EA4F9 /* InputEvent.cpp in Sources */,
+				A981FB4B216D50FF0097D3DE /* FeedingKeyValueStore.cpp in Sources */,
 				A9A563ED2102937F005EA4F9 /* WiringPiWrapper.cpp in Sources */,
 				A9A563F021029DBE005EA4F9 /* SevenSegmentDisplay.cpp in Sources */,
 				A9A563E221028A77005EA4F9 /* main.cpp in Sources */,

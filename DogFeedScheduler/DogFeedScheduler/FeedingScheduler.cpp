@@ -9,11 +9,7 @@
 #include "FeedingScheduler.hpp"
 #include <string>
 
-#include <sstream>
-#include <fstream> 
-#include <unistd.h>
-#include <pwd.h>
-
+#include "FeedingKeyValueStore.hpp"
 
 void testCcallback(void) {
     puts("Callback called");
@@ -50,38 +46,9 @@ int FeedingScheduler::completedFeedingsNow(){
 
 void FeedingScheduler::updatePins(){
     int completed = completedFeedingsNow();
-    const char *homedir;
     
-    if ((homedir = getenv("HOME")) == NULL) {
-        homedir = getpwuid(getuid())->pw_dir;
-    }
-    
-    std::string path = std::string(homedir) + "/Desktop/completedFeedings";
-    
-    //Read feedings
-    std::ifstream inputStream(path);
-    std::stringstream buffer;
-    buffer << inputStream.rdbuf();
-    std::string fileContents = buffer.str();
-    
-    inputStream.close();
-
-    std::string intAsString = std::to_string(completed);
-    
-    //Write feedings if changed
-    if(intAsString != fileContents){
-        std::ofstream outputStream(path);
-        if(outputStream.is_open())   
-        {
-            outputStream << intAsString;       
-        }
-        else    
-        {
-            //Error
-        }
-        
-        outputStream.close();
-    }    
+    FeedingKeyValueStore completedStore = FeedingKeyValueStore("completedFeedings");
+    completedStore.updateValue(completed);
     
     int ideal = idealFeedingCountNow();
     int dueFeedings = ideal - completed;
