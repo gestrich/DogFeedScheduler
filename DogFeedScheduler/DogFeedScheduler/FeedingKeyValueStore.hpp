@@ -19,7 +19,8 @@ public:
         //other initializer defaults go here
     };
     std::string key = "";
-    void updateValue(int newValue);  
+    void updateValue(int newValue);
+    void sendiCloudMessage(std::string message, std::string number);
 };
 
 #endif /* FeedingKeyValueStore_hpp */

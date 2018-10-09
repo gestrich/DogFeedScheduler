@@ -35,6 +35,8 @@ void FeedingKeyValueStore::updateValue(int newValue){
     
     //Write feedings if changed
     if(intAsString != fileContents){
+        sendiCloudMessage(std::to_string(newValue), "4123773856"); 
+
         std::ofstream outputStream(path, std::ios::binary);
         if(outputStream.is_open())   
         {
@@ -46,5 +48,9 @@ void FeedingKeyValueStore::updateValue(int newValue){
         }
         
         outputStream.close();
-    }    
+    }
 }
+
+void FeedingKeyValueStore::sendiCloudMessage(std::string message, std::string number){
+    system("ssh 'bill@billgesichsipro.fios-router.home' \"osascript ~/Desktop/shortcuts/message.scpt '4123773856' 'AUTOMATED: Completed Feeding Changed'\"");
+}    
