@@ -56,7 +56,7 @@ void FeedingScheduler::updatePins(){
         homedir = getpwuid(getuid())->pw_dir;
     }
     
-    std::string path = std::string(homedir) + "/Desktop/completedFeedings";
+    std::string path = std::string(homedir) + "/Desktop/completedFeedings.txt";
     
     //Read feedings
     std::ifstream inputStream(path);
@@ -81,6 +81,7 @@ void FeedingScheduler::updatePins(){
         }
         
         outputStream.close();
+        system("ssh 'bill@billgesichsipro.fios-router.home' \"osascript ~/Desktop/shortcuts/message.scpt '4123773856' 'AUTOMATED: Completed Feeding Changed'\"");
     }    
     
     int ideal = idealFeedingCountNow();
