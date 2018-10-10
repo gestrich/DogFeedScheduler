@@ -13,34 +13,15 @@
 #include <unistd.h>
 #include <pwd.h>
 
-//FeedingKeyValueStore::FeedingKeyValueStore(std::string filename){}
-
-void FeedingKeyValueStore::updateValue(int newValue){
-    const char *homedir;
-    if ((homedir = getenv("HOME")) == NULL) {
-        homedir = getpwuid(getuid())->pw_dir;
-    }
-    
-    std::string path = std::string(homedir) + "/Desktop/" + key;
-    
-    //Read feedings
-    std::ifstream inputStream(path);
-    std::stringstream buffer;
-    buffer << inputStream.rdbuf();
-    std::string fileContents = buffer.str();
-    
-    inputStream.close();
-    
-    std::string intAsString = std::to_string(newValue);
+void FeedingKeyValueStore::updateValue(std::string newValue){
     
     //Write feedings if changed
-    if(intAsString != fileContents){
-        sendiCloudMessage(std::to_string(newValue), "4123773856"); 
+    if(newValue != getValue()){
 
-        std::ofstream outputStream(path, std::ios::binary);
+        std::ofstream outputStream(path(), std::ios::binary);
         if(outputStream.is_open())   
         {
-            outputStream << intAsString;       
+            outputStream << newValue;       
         }
         else    
         {
@@ -49,6 +30,25 @@ void FeedingKeyValueStore::updateValue(int newValue){
         
         outputStream.close();
     }
+}
+
+std::string FeedingKeyValueStore::getValue(){
+    std::ifstream inputStream(path());
+    std::stringstream buffer;
+    buffer << inputStream.rdbuf();
+    std::string fileContents = buffer.str();
+    inputStream.close();
+    return fileContents;    
+}
+
+std::string FeedingKeyValueStore::path(){
+    const char *homedir;
+    if ((homedir = getenv("HOME")) == NULL) {
+        homedir = getpwuid(getuid())->pw_dir;
+    }
+    
+    std::string path = std::string(homedir) + "/Desktop/" + key;
+    return path;    
 }
 
 void FeedingKeyValueStore::sendiCloudMessage(std::string message, std::string number){

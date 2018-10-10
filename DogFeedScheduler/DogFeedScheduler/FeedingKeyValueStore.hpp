@@ -19,7 +19,9 @@ public:
         //other initializer defaults go here
     };
     std::string key = "";
-    void updateValue(int newValue);
+    void updateValue(std::string newValue);
+    std::string getValue();
+    std::string path();
     void sendiCloudMessage(std::string message, std::string number);
 };
 

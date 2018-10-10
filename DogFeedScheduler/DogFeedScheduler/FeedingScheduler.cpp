@@ -47,11 +47,22 @@ int FeedingScheduler::completedFeedingsNow(){
 void FeedingScheduler::updatePins(){
     int completed = completedFeedingsNow();
     
-    FeedingKeyValueStore completedStore = FeedingKeyValueStore("completedFeedings");
-    completedStore.updateValue(completed);
+    FeedingKeyValueStore feedingsCompletedStore = FeedingKeyValueStore("feedingsComplete");
+    feedingsCompletedStore.updateValue(std::to_string(completed));
     
     int ideal = idealFeedingCountNow();
     int dueFeedings = ideal - completed;
+    
+    FeedingKeyValueStore feedingsDueStore = FeedingKeyValueStore("feedingsDue");
+    std::string previousFeedingsDueAsString = feedingsDueStore.getValue();
+    std::string feedingsDueAsString = std::to_string(dueFeedings);
+    if(previousFeedingsDueAsString != feedingsDueAsString){
+        //Changed
+        feedingsDueStore.updateValue(feedingsDueAsString);
+        std::string message = std::string("Automated: ") + "The babies need fed.";
+        feedingsDueStore.sendiCloudMessage(message, "4123773856"); //Alert
+    }
+
     segmentDisplay.showDigit(completed % 10);
     
     bool doorOpened = door.high();
