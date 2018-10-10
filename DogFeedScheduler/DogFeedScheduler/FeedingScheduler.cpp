@@ -23,7 +23,7 @@ FeedingScheduler::FeedingScheduler()
     segmentDisplay = SevenSegementDisplay();
 }
 
-int FeedingScheduler::idealFeedingCountNow(){
+int FeedingScheduler::idealFeedingCountToday(){
     int currentHour = DateTimeUtilities::currentHourIndex();
     if (currentHour > 0 && currentHour < 5){
         return 0; //Early Morning - no feeding
@@ -36,26 +36,31 @@ int FeedingScheduler::idealFeedingCountNow(){
     }
 }
 
-int FeedingScheduler::completedFeedingsNow(){
+int FeedingScheduler::completedFeedingCountToday(){
     int total = 0;
     for (auto event: events) {
         if (event.today() == true) {
+            printf("Is today = True");
+            fflush(stdout);
             total++;
+        } else {
+            printf("Is today = false");
+            fflush(stdout);            
         }
     }
     return total;
 }
 
 void FeedingScheduler::updatePins(){
-    int completed = completedFeedingsNow();
+    int completed = completedFeedingCountToday();
     
-    printf("Completed feedings = %u", completed);
+    printf("Completed feedings = %u\n", completed);
     fflush(stdout);
     
     FeedingKeyValueStore feedingsCompletedStore = FeedingKeyValueStore("feedingsComplete");
     feedingsCompletedStore.updateValue(std::to_string(completed));
     
-    int ideal = idealFeedingCountNow();
+    int ideal = idealFeedingCountToday();
     int feedingsDueAsInt = ideal - completed;
     
     FeedingKeyValueStore feedingsDueStore = FeedingKeyValueStore("feedingsDue");

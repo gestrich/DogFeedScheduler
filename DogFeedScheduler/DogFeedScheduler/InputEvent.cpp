@@ -14,9 +14,3 @@ bool InputEvent::today(){
     DateTimeUtilities::monthFromTime(time(0)) == DateTimeUtilities::monthFromTime(pressTime) &&
     DateTimeUtilities::yearFromTime(time(0)) == DateTimeUtilities::yearFromTime(pressTime);
 }
-
-int InputEvent::minute(){
-    struct tm* tm_info;
-    tm_info = localtime(&pressTime);
-    return tm_info->tm_sec;
-}

@@ -21,7 +21,6 @@ class InputEvent {
 public:
     bool today();
     time_t pressTime = time(0);
-    int minute();
     InputEventType eventType;
 };
 
