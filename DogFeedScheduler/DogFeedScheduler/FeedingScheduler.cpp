@@ -49,6 +49,9 @@ int FeedingScheduler::completedFeedingsNow(){
 void FeedingScheduler::updatePins(){
     int completed = completedFeedingsNow();
     
+    printf("Completed feedings = %u", completed);
+    fflush(stdout);
+    
     FeedingKeyValueStore feedingsCompletedStore = FeedingKeyValueStore("feedingsComplete");
     feedingsCompletedStore.updateValue(std::to_string(completed));
     
