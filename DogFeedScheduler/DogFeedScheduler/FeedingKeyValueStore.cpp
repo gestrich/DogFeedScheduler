@@ -62,5 +62,6 @@ void FeedingKeyValueStore::sendiCloudMessage(std::string message, std::string nu
     std::string recipientPart = "'4123773856' '";
     std::string endPart = "' \"";
     std::string fullCommand = sshFirstPath + recipientPart + message + endPart;
+    printf("%s", fullCommand.c_str());
     system(fullCommand.c_str());
 }    
