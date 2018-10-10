@@ -56,8 +56,8 @@ void FeedingScheduler::updatePins(){
     FeedingKeyValueStore feedingsDueStore = FeedingKeyValueStore("feedingsDue");
     std::string previousFeedingsDueAsString = feedingsDueStore.getValue();
     std::string feedingsDueAsString = std::to_string(dueFeedings);
-    if(previousFeedingsDueAsString != feedingsDueAsString){
-        //Changed
+    if(std::stoi(previousFeedingsDueAsString) < std::stoi(feedingsDueAsString)){
+        //Increased
         feedingsDueStore.updateValue(feedingsDueAsString);
         std::string message = std::string("Automated: ") + "The babies need fed.";
         feedingsDueStore.sendiCloudMessage(message, "4123773856"); //Alert
