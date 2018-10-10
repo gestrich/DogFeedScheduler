@@ -67,12 +67,13 @@ void FeedingScheduler::updatePins(){
         previousFeedingsDueAsInt = 0;
     }
     
-    if(previousFeedingsDueAsInt < feedingsDueAsInt){
-        //Increased
+    if(previousFeedingsDueAsInt != feedingsDueAsInt){
         feedingsDueStore.updateValue(feedingsDueAsString);
-        std::string message = std::string("The babies are hungry.");
-        printf("%s", message.c_str());
-        feedingsDueStore.sendiCloudMessage(message, "4123773856"); //Alert
+        if(previousFeedingsDueAsInt < feedingsDueAsInt){
+            //Increased
+            std::string message = std::string("The babies are hungry.");
+            feedingsDueStore.sendiCloudMessage(message, "4123773856"); //Alert   
+        }
     }
 
     segmentDisplay.showDigit(completed % 10);
