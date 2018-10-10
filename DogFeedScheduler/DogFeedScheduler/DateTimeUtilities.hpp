@@ -15,6 +15,8 @@
 
 class DateTimeUtilities {
 public:
+    static int yearFromTime(time_t timeVal);
+    static int monthFromTime(time_t timeVal);
     static int dayFromTime(time_t timeVal);
     static int hourFromTime(time_t timeVal);
     static int currentHourIndex();

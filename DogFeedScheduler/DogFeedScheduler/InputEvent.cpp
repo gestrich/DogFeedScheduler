@@ -10,7 +10,9 @@
 #include "DateTimeUtilities.hpp"
 
 bool InputEvent::today(){
-    return DateTimeUtilities::dayFromTime(time(0)) == DateTimeUtilities::dayFromTime(pressTime); 
+    return DateTimeUtilities::dayFromTime(time(0)) == DateTimeUtilities::dayFromTime(pressTime) &&
+    DateTimeUtilities::monthFromTime(time(0)) == DateTimeUtilities::monthFromTime(pressTime) &&
+    DateTimeUtilities::yearFromTime(time(0)) == DateTimeUtilities::yearFromTime(pressTime);
 }
 
 int InputEvent::minute(){

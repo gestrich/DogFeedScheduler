@@ -14,7 +14,7 @@
 using namespace std;
 
 void testCcallback(void) {
-    puts("Callback called");
+//    puts("Callback called");
 }
 
 FeedingScheduler::FeedingScheduler()

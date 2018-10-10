@@ -8,6 +8,16 @@
 
 #include "DateTimeUtilities.hpp"
 
+int DateTimeUtilities::yearFromTime(time_t timeVal){
+    struct tm* tm_info = localtime(&timeVal);
+    return tm_info->tm_year;
+}
+
+int DateTimeUtilities::monthFromTime(time_t timeVal){
+    struct tm* tm_info = localtime(&timeVal);
+    return tm_info->tm_mon;
+}
+
 int DateTimeUtilities::dayFromTime(time_t timeVal){
     struct tm* tm_info = localtime(&timeVal);
     return tm_info->tm_mday;
