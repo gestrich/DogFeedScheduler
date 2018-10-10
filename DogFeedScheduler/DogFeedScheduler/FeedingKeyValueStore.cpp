@@ -52,6 +52,12 @@ std::string FeedingKeyValueStore::path(){
 }
 
 void FeedingKeyValueStore::sendiCloudMessage(std::string message, std::string number){
+    int maxMessages = 50;
+    static int messagesSent = 0;
+    if(messagesSent > maxMessages){
+        return;
+    }
+    messagesSent++;
     std::string sshFirstPath = "ssh 'bill@billgesichsipro.fios-router.home' \"osascript ~/Desktop/shortcuts/message.scpt ";
     std::string recipientPart = "'4123773856' '";
     std::string endPart = "' \"";
