@@ -1,4 +1,5 @@
 #include <iostream>
+#include <unistd.h>
 
 
 #include <stdio.h>
@@ -21,7 +22,7 @@ int main (void)
     
     while(true) {
         scheduler.updatePins();
-        //delay(1000);
+        //usleep(1000000);
     }
     
     return 0;

@@ -40,12 +40,7 @@ int FeedingScheduler::completedFeedingCountToday(){
     int total = 0;
     for (auto event: events) {
         if (event.today() == true) {
-            printf("Is today = True");
-            fflush(stdout);
             total++;
-        } else {
-            printf("Is today = false");
-            fflush(stdout);            
         }
     }
     return total;
@@ -54,16 +49,13 @@ int FeedingScheduler::completedFeedingCountToday(){
 void FeedingScheduler::updatePins(){
     int completed = completedFeedingCountToday();
     
-    printf("Completed feedings = %u\n", completed);
-    fflush(stdout);
-    
-    FeedingKeyValueStore feedingsCompletedStore = FeedingKeyValueStore("feedingsComplete");
+    FeedingKeyValueStore feedingsCompletedStore = FeedingKeyValueStore("feedingsComplete.txt");
     feedingsCompletedStore.updateValue(std::to_string(completed));
     
     int ideal = idealFeedingCountToday();
     int feedingsDueAsInt = ideal - completed;
     
-    FeedingKeyValueStore feedingsDueStore = FeedingKeyValueStore("feedingsDue");
+    FeedingKeyValueStore feedingsDueStore = FeedingKeyValueStore("feedingsDue.txt");
     std::string previousFeedingsDueAsString = feedingsDueStore.getValue();
     std::string feedingsDueAsString = std::to_string(feedingsDueAsInt);
     

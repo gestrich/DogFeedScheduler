@@ -8,7 +8,7 @@
 
 #include "WiringPiWrapper.hpp"
 
-#define RASPBERRY_PI 0
+#define RASPBERRY_PI 1 
 
 #if RASPBERRY_PI
 #include <wiringPi.h>
