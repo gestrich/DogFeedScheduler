@@ -11,6 +11,8 @@
 
 #include "FeedingKeyValueStore.hpp"
 
+using namespace std;
+
 void testCcallback(void) {
     puts("Callback called");
 }
@@ -51,12 +53,21 @@ void FeedingScheduler::updatePins(){
     feedingsCompletedStore.updateValue(std::to_string(completed));
     
     int ideal = idealFeedingCountNow();
-    int dueFeedings = ideal - completed;
+    int feedingsDueAsInt = ideal - completed;
     
     FeedingKeyValueStore feedingsDueStore = FeedingKeyValueStore("feedingsDue");
     std::string previousFeedingsDueAsString = feedingsDueStore.getValue();
-    std::string feedingsDueAsString = std::to_string(dueFeedings);
-    if(std::stoi(previousFeedingsDueAsString) < std::stoi(feedingsDueAsString)){
+    std::string feedingsDueAsString = std::to_string(feedingsDueAsInt);
+    
+    int previousFeedingsDueAsInt = 0;
+    try {
+        previousFeedingsDueAsInt = stoi(previousFeedingsDueAsString);
+    }
+    catch(...) {
+        previousFeedingsDueAsInt = 0;
+    }
+    
+    if(previousFeedingsDueAsInt < feedingsDueAsInt){
         //Increased
         feedingsDueStore.updateValue(feedingsDueAsString);
         std::string message = std::string("The babies are hungry.");
@@ -75,7 +86,7 @@ void FeedingScheduler::updatePins(){
     
     if(doorOpened){
         led1.setMode(LedBlink); //blinking for open door
-    } else if (dueFeedings > 0) {
+    } else if (feedingsDueAsInt > 0) {
         led1.setMode(LedSolid); //solid for feeding due
     } else {
         led1.setMode(LedOff); //off for all good
