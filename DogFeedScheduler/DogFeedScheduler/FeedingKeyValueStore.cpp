@@ -52,5 +52,9 @@ std::string FeedingKeyValueStore::path(){
 }
 
 void FeedingKeyValueStore::sendiCloudMessage(std::string message, std::string number){
-    system("ssh 'bill@billgesichsipro.fios-router.home' \"osascript ~/Desktop/shortcuts/message.scpt '4123773856' 'AUTOMATED: Completed Feeding Changed'\"");
+    std::string sshFirstPath = "ssh 'bill@billgesichsipro.fios-router.home' \"osascript ~/Desktop/shortcuts/message.scpt ";
+    std::string recipientPart = "'4123773856' ";
+    std::string endPart = "\"";
+    std::string fullCommand = sshFirstPath + recipientPart + message + endPart;
+    system(fullCommand.c_str());
 }    
