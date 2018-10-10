@@ -59,7 +59,8 @@ void FeedingScheduler::updatePins(){
     if(std::stoi(previousFeedingsDueAsString) < std::stoi(feedingsDueAsString)){
         //Increased
         feedingsDueStore.updateValue(feedingsDueAsString);
-        std::string message = std::string("Automated: ") + "The babies need fed.";
+        std::string message = std::string("The babies are hungry.");
+        printf("%s", message.c_str());
         feedingsDueStore.sendiCloudMessage(message, "4123773856"); //Alert
     }
 
