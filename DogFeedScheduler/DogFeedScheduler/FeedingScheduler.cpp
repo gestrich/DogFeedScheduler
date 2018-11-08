@@ -25,14 +25,14 @@ FeedingScheduler::FeedingScheduler()
 
 int FeedingScheduler::idealFeedingCountToday(){
     int currentHour = DateTimeUtilities::currentHourIndex();
-    if (currentHour > 0 && currentHour < 5){
+    if (currentHour >= 0 && currentHour <= 5){
         return 0; //Early Morning - no feeding
     } else if (currentHour < 12){
         return 1; //Morning
     } else if (currentHour < 18){
         return 2; // Afternoon
     } else {
-        return 3; //Midnight
+        return 3; //Evening
     }
 }
 
@@ -69,10 +69,13 @@ void FeedingScheduler::updatePins(){
     
     if(previousFeedingsDueAsInt != feedingsDueAsInt){
         feedingsDueStore.updateValue(feedingsDueAsString);
-        if(previousFeedingsDueAsInt < feedingsDueAsInt){
-            //Increased
-            std::string message = std::string("The babies are hungry.");
-            feedingsDueStore.sendiCloudMessage(message, "4123773856"); //Alert   
+        if(feedingsDueAsInt > 0 && previousFeedingsDueAsInt < feedingsDueAsInt){
+            //Increased    
+            int currentHour = DateTimeUtilities::currentHourIndex();
+            if(currentHour >= 8){
+                std::string message = std::string("The babies are hungry.");
+                feedingsDueStore.sendiCloudMessage(message, "4123773856"); //Alert   
+            }
         }
     }
 
