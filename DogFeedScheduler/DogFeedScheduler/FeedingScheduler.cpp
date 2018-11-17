@@ -69,7 +69,7 @@ void FeedingScheduler::updatePins(){
     
     if(previousFeedingsDueAsInt != feedingsDueAsInt){
         feedingsDueStore.updateValue(feedingsDueAsString);
-        if(feedingsDueAsInt > 0 && previousFeedingsDueAsInt < feedingsDueAsInt){
+        if(feedingsDueAsInt > 0 && (previousFeedingsDueAsInt < feedingsDueAsInt)){
             //Increased    
             int currentHour = DateTimeUtilities::currentHourIndex();
             if(currentHour >= 8){
