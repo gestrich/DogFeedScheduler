@@ -60,7 +60,7 @@ void WiringPiWrapper::writePi(int gpio_index, bool high){
 bool WiringPiWrapper::readPi(int gpio_index){
     
     bool toRet = false;
-#if RASPBERRY_PI
+#if !defined(WIRING_PI_DISABLED)
     toRet = digitalRead(gpio_index);
 #endif
     return toRet;
