@@ -19,15 +19,19 @@
 
 void WiringPiWrapper::setupGPIO(){
     
-#if !defined(WIRING_PI_DISABLED)    
+    
     static bool initialized;
     if (!initialized) {
-        puts("setting up wiring pi");
         initialized = true;
+#if !defined(WIRING_PI_DISABLED)
         wiringPiSetupGpio ();
+        puts("Wiring Pi Enabled");
+#else
+        puts("Wiring Pi Disabled");
+#endif
     }
     
-#endif
+
     
 }
 
