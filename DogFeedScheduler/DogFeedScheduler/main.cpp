@@ -9,6 +9,7 @@
 #include "SevenSegmentDisplay.hpp"
 #include "Led.hpp"
 #include "FeedingScheduler.hpp"
+#include "WasherMonitor.hpp"
 #include <stdio.h>
 
 
@@ -34,6 +35,11 @@ int main(int argc, char *argv[])
             }       
         } else if (program == washerProgramName){
             puts("***Starting Washer Program***");
+            WasherMonitor washerMonitor = WasherMonitor();
+            
+            while(true) {
+                washerMonitor.updatePins();
+            }       
         } else {
             puts(instructionMessage.c_str());    
         }

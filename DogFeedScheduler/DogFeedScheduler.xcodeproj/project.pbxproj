@@ -17,6 +17,7 @@
 		A9A563F821029F33005EA4F9 /* FeedingScheduler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563F621029F33005EA4F9 /* FeedingScheduler.cpp */; };
 		A9A563FB21029FE5005EA4F9 /* InputEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563F921029FE5005EA4F9 /* InputEvent.cpp */; };
 		A9A564002102A227005EA4F9 /* DateTimeUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563FE2102A227005EA4F9 /* DateTimeUtilities.cpp */; };
+		A9E1887F21A1BFEB00D3D0A7 /* WasherMonitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9E1887D21A1BFEB00D3D0A7 /* WasherMonitor.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,8 @@
 		A9A563FA21029FE5005EA4F9 /* InputEvent.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputEvent.hpp; sourceTree = "<group>"; };
 		A9A563FE2102A227005EA4F9 /* DateTimeUtilities.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = DateTimeUtilities.cpp; sourceTree = "<group>"; };
 		A9A563FF2102A227005EA4F9 /* DateTimeUtilities.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DateTimeUtilities.hpp; sourceTree = "<group>"; };
+		A9E1887D21A1BFEB00D3D0A7 /* WasherMonitor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WasherMonitor.cpp; sourceTree = "<group>"; };
+		A9E1887E21A1BFEB00D3D0A7 /* WasherMonitor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WasherMonitor.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,10 +152,20 @@
 				A99AB84A2103563A00B54EFA /* Input */,
 				A99AB8492103562C00B54EFA /* Output */,
 				A949E5B621A18CA90003990D /* Utilities */,
+				A9E1887C21A1BFC300D3D0A7 /* Washer */,
 				A949E5B421A18C820003990D /* Wiring Pi */,
 				A9A563E121028A77005EA4F9 /* main.cpp */,
 			);
 			path = DogFeedScheduler;
+			sourceTree = "<group>";
+		};
+		A9E1887C21A1BFC300D3D0A7 /* Washer */ = {
+			isa = PBXGroup;
+			children = (
+				A9E1887D21A1BFEB00D3D0A7 /* WasherMonitor.cpp */,
+				A9E1887E21A1BFEB00D3D0A7 /* WasherMonitor.hpp */,
+			);
+			name = Washer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9A563EA210292EB005EA4F9 /* InputDevice.cpp in Sources */,
+				A9E1887F21A1BFEB00D3D0A7 /* WasherMonitor.cpp in Sources */,
 				A9A563FB21029FE5005EA4F9 /* InputEvent.cpp in Sources */,
 				A981FB4B216D50FF0097D3DE /* FeedingKeyValueStore.cpp in Sources */,
 				A9A563ED2102937F005EA4F9 /* WiringPiWrapper.cpp in Sources */,

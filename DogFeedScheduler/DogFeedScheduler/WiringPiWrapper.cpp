@@ -8,8 +8,6 @@
 
 #include "WiringPiWrapper.hpp"
 
-//#define RASPBERRY_PI 1 
-
 #if !defined(WIRING_PI_DISABLED)
 #include <wiringPi.h>
 #endif
