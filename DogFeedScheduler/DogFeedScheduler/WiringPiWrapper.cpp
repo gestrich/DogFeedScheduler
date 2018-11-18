@@ -8,9 +8,9 @@
 
 #include "WiringPiWrapper.hpp"
 
-#define RASPBERRY_PI 1 
+//#define RASPBERRY_PI 1 
 
-#if RASPBERRY_PI
+#if !defined(WIRING_PI_DISABLED)
 #include <wiringPi.h>
 #endif
 
@@ -19,8 +19,7 @@
 
 void WiringPiWrapper::setupGPIO(){
     
-#if RASPBERRY_PI
-    
+#if !defined(WIRING_PI_DISABLED)    
     static bool initialized;
     if (!initialized) {
         puts("setting up wiring pi");
@@ -34,7 +33,7 @@ void WiringPiWrapper::setupGPIO(){
 
 void WiringPiWrapper::setPinModePi(int gpio_index, bool output){
     
-#if RASPBERRY_PI
+#if !defined(WIRING_PI_DISABLED)
     if (output == true){
         pinMode(gpio_index, OUTPUT);        
     } else {
@@ -46,7 +45,7 @@ void WiringPiWrapper::setPinModePi(int gpio_index, bool output){
 
 void WiringPiWrapper::writePi(int gpio_index, bool high){
     
-#if RASPBERRY_PI
+#if !defined(WIRING_PI_DISABLED)
     if(high){
         digitalWrite(gpio_index, HIGH);        
     } else {
@@ -66,7 +65,7 @@ bool WiringPiWrapper::readPi(int gpio_index){
 }
 
 void WiringPiWrapper::registerCallback(int gpio_pin, EdgeType edgeType, void (*function)(void)){
-#if RASPBERRY_PI
+#if !defined(WIRING_PI_DISABLED)
     //INT_EDGE_FALLING, INT_EDGE_RISING, INT_EDGE_BOTH or INT_EDGE_SETUP
     int edgeTypeInt =  INT_EDGE_FALLING;
     switch (edgeType){

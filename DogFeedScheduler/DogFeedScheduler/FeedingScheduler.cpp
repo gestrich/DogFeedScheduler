@@ -8,7 +8,7 @@
 
 #include "FeedingScheduler.hpp"
 #include <string>
-
+#include "ICloudMessenger.hpp"
 #include "FeedingKeyValueStore.hpp"
 
 using namespace std;
@@ -74,7 +74,7 @@ void FeedingScheduler::updatePins(){
             int currentHour = DateTimeUtilities::currentHourIndex();
             if(currentHour >= 8){
                 std::string message = std::string("The babies are hungry.");
-                feedingsDueStore.sendiCloudMessage(message, "4123773856"); //Alert   
+                ICloudMessenger::sendMessage(message, "4123773856"); //Alert   
             }
         }
     }
