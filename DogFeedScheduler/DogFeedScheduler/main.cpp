@@ -9,20 +9,34 @@
 #include "SevenSegmentDisplay.hpp"
 #include "Led.hpp"
 #include "FeedingScheduler.hpp"
+#include <stdio.h>
 
 
 
-
-int main (void)
+int main(int argc, char *argv[])
 {
-    printf("***Starting Feeding Scheduler***\n");
     
-    FeedingScheduler scheduler = FeedingScheduler();
-
+    std::string dogProgramName = "dog";
+    std::string washerProgramName = "washer";
+    std::string instructionMessage = "Include program name to run: " + dogProgramName + ", " + washerProgramName; 
     
-    while(true) {
-        scheduler.updatePins();
-        //usleep(1000000);
+    if(argc < 2){ 
+        puts(instructionMessage.c_str());
+    } else {
+        std::string program = argv[1];
+        if(program == dogProgramName){
+            
+            puts("***Starting Dog Feeding Program***");
+            FeedingScheduler scheduler = FeedingScheduler();
+        
+            while(true) {
+                scheduler.updatePins();
+            }       
+        } else if (program == washerProgramName){
+            puts("***Starting Washer Program***");
+        } else {
+            puts(instructionMessage.c_str());    
+        }
     }
     
     return 0;
