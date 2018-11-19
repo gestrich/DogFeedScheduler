@@ -18,6 +18,7 @@
 		A9A563FB21029FE5005EA4F9 /* InputEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563F921029FE5005EA4F9 /* InputEvent.cpp */; };
 		A9A564002102A227005EA4F9 /* DateTimeUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563FE2102A227005EA4F9 /* DateTimeUtilities.cpp */; };
 		A9E1887F21A1BFEB00D3D0A7 /* WasherMonitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9E1887D21A1BFEB00D3D0A7 /* WasherMonitor.cpp */; };
+		A9E1888221A1F91000D3D0A7 /* WasherEventWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9E1888021A1F91000D3D0A7 /* WasherEventWindow.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +56,8 @@
 		A9A563FF2102A227005EA4F9 /* DateTimeUtilities.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DateTimeUtilities.hpp; sourceTree = "<group>"; };
 		A9E1887D21A1BFEB00D3D0A7 /* WasherMonitor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WasherMonitor.cpp; sourceTree = "<group>"; };
 		A9E1887E21A1BFEB00D3D0A7 /* WasherMonitor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WasherMonitor.hpp; sourceTree = "<group>"; };
+		A9E1888021A1F91000D3D0A7 /* WasherEventWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WasherEventWindow.cpp; sourceTree = "<group>"; };
+		A9E1888121A1F91000D3D0A7 /* WasherEventWindow.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WasherEventWindow.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +167,8 @@
 			children = (
 				A9E1887D21A1BFEB00D3D0A7 /* WasherMonitor.cpp */,
 				A9E1887E21A1BFEB00D3D0A7 /* WasherMonitor.hpp */,
+				A9E1888021A1F91000D3D0A7 /* WasherEventWindow.cpp */,
+				A9E1888121A1F91000D3D0A7 /* WasherEventWindow.hpp */,
 			);
 			name = Washer;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 			files = (
 				A9A563EA210292EB005EA4F9 /* InputDevice.cpp in Sources */,
 				A9E1887F21A1BFEB00D3D0A7 /* WasherMonitor.cpp in Sources */,
+				A9E1888221A1F91000D3D0A7 /* WasherEventWindow.cpp in Sources */,
 				A9A563FB21029FE5005EA4F9 /* InputEvent.cpp in Sources */,
 				A981FB4B216D50FF0097D3DE /* FeedingKeyValueStore.cpp in Sources */,
 				A9A563ED2102937F005EA4F9 /* WiringPiWrapper.cpp in Sources */,

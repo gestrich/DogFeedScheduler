@@ -10,10 +10,13 @@
 #define WasherMonitor_hpp
 
 #include "InputDevice.hpp"
+#include "WasherEventWindow.hpp"
 
 #include <stdio.h>
 
 class WasherMonitor {
+//    WasherEventWindow lastRecordedWindow;
+    WasherEventWindow currentWindow();
 public:
     WasherMonitor();  
     InputDevice knockSensor;
