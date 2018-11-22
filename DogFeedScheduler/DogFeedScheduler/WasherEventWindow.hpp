@@ -22,6 +22,7 @@ public:
     time_t startTime = 0;
     time_t seconds = 0;
     int eventCount = 0;
+    bool isOtherWindowAdjacent(const WasherEventWindow& other);
     bool operator==(const WasherEventWindow& other );
     
 };
