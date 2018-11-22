@@ -25,7 +25,7 @@ void WasherMonitor::checkForEvents(){
         time_t timeNow = time(0);
         if(lastRecordedWindow.windowIncludesTime(timeNow)){
             //Last window still active - track event
-            if(lastRecordedWindow.eventCount >= EVENT_COUNT_TRIGGERING_CYCLE){
+            if(lastRecordedWindow.eventCount >= EVENT_COUNT_TRIGGERING_CYCLE && lastState.stateValue != CYCLE){
                 washer_state_value cycleArg = CYCLE;
                 lastState = WasherState(cycleArg);
                 puts("State set to CYCLE");
@@ -44,11 +44,8 @@ void WasherMonitor::checkForEvents(){
                     puts("State set to None after lid opened.");
                     washer_state_value cycleArg = NONE;
                     lastState = WasherState(cycleArg);
-                    static bool messageSent = false;
-                    if(messageSent == false){
-                        ICloudMessenger().sendMessage("Washer likely just emptied", "4123773856");
-                        messageSent = true;
-                    }
+                    
+                    ICloudMessenger().sendMessage("Washer likely just emptied", "4123773856");
                 }
             } else {
                 //First event so not in cycle mode yet.
@@ -68,11 +65,7 @@ void WasherMonitor::checkForEvents(){
             time_t minimumTimeToAlert = lastState.stateLastMovement + SECONDS_BEFORE_ALERTING;
             
             if(timeNow >= minimumTimeToAlert){
-                static bool messageSent = false;
-                if(messageSent == false){
-                    ICloudMessenger().sendMessage("Washer needs emptied", "4123773856");
-                    messageSent = true;
-                }
+                ICloudMessenger().sendMessage("Washer needs emptied", "4123773856");
             }
         }
     }
