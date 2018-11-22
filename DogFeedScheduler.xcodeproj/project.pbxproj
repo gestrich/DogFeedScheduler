@@ -71,70 +71,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A949E5B321A18C550003990D /* Alerts */ = {
-			isa = PBXGroup;
-			children = (
-				A949E5B0219FA2100003990D /* ICloudMessenger.cpp */,
-				A949E5B1219FA2100003990D /* ICloudMessenger.hpp */,
-			);
-			name = Alerts;
-			sourceTree = "<group>";
-		};
-		A949E5B421A18C820003990D /* Wiring Pi */ = {
-			isa = PBXGroup;
-			children = (
-				A9A563EC2102937F005EA4F9 /* WiringPiWrapper.hpp */,
-				A9A563EB2102937F005EA4F9 /* WiringPiWrapper.cpp */,
-			);
-			name = "Wiring Pi";
-			sourceTree = "<group>";
-		};
-		A949E5B521A18C940003990D /* Dog Feeding */ = {
-			isa = PBXGroup;
-			children = (
-				A9A563F621029F33005EA4F9 /* FeedingScheduler.cpp */,
-				A9A563F721029F33005EA4F9 /* FeedingScheduler.hpp */,
-				A981FB49216D50FF0097D3DE /* FeedingKeyValueStore.cpp */,
-				A981FB4A216D50FF0097D3DE /* FeedingKeyValueStore.hpp */,
-			);
-			name = "Dog Feeding";
-			sourceTree = "<group>";
-		};
-		A949E5B621A18CA90003990D /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				A9A563FE2102A227005EA4F9 /* DateTimeUtilities.cpp */,
-				A9A563FF2102A227005EA4F9 /* DateTimeUtilities.hpp */,
-			);
-			name = Utilities;
-			sourceTree = "<group>";
-		};
-		A99AB8492103562C00B54EFA /* Output */ = {
-			isa = PBXGroup;
-			children = (
-				A9A563EE21029DBE005EA4F9 /* SevenSegmentDisplay.cpp */,
-				A9A563EF21029DBE005EA4F9 /* SevenSegmentDisplay.hpp */,
-				A9A563F321029EB5005EA4F9 /* Led.cpp */,
-				A9A563F421029EB5005EA4F9 /* Led.hpp */,
-			);
-			name = Output;
-			sourceTree = "<group>";
-		};
-		A99AB84A2103563A00B54EFA /* Input */ = {
-			isa = PBXGroup;
-			children = (
-				A9A563E8210292EB005EA4F9 /* InputDevice.cpp */,
-				A9A563E9210292EB005EA4F9 /* InputDevice.hpp */,
-				A9A563F921029FE5005EA4F9 /* InputEvent.cpp */,
-				A9A563FA21029FE5005EA4F9 /* InputEvent.hpp */,
-			);
-			name = Input;
-			sourceTree = "<group>";
-		};
 		A9A563D521028A77005EA4F9 = {
 			isa = PBXGroup;
 			children = (
-				A9A563E021028A77005EA4F9 /* DogFeedScheduler */,
+				A9E8ED9A21A6FEB4000A2F45 /* Alerts */,
+				A9D0663B21A7007100199CBA /* Dog Feeding */,
+				A9D0663621A6FF7B00199CBA /* Input */,
+				A9D0663721A6FF9200199CBA /* Output */,
+				A9D0663821A6FFA500199CBA /* Utilities */,
+				A9D0663921A6FFD800199CBA /* Washer */,
+				A9D0663A21A7000A00199CBA /* Wiring Pi */,
+				A9A563E121028A77005EA4F9 /* main.cpp */,
 				A9A563DF21028A77005EA4F9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,22 +94,38 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A9A563E021028A77005EA4F9 /* DogFeedScheduler */ = {
+		A9D0663621A6FF7B00199CBA /* Input */ = {
 			isa = PBXGroup;
 			children = (
-				A949E5B321A18C550003990D /* Alerts */,
-				A949E5B521A18C940003990D /* Dog Feeding */,
-				A99AB84A2103563A00B54EFA /* Input */,
-				A99AB8492103562C00B54EFA /* Output */,
-				A949E5B621A18CA90003990D /* Utilities */,
-				A9E1887C21A1BFC300D3D0A7 /* Washer */,
-				A949E5B421A18C820003990D /* Wiring Pi */,
-				A9A563E121028A77005EA4F9 /* main.cpp */,
+				A9A563E8210292EB005EA4F9 /* InputDevice.cpp */,
+				A9A563E9210292EB005EA4F9 /* InputDevice.hpp */,
+				A9A563F921029FE5005EA4F9 /* InputEvent.cpp */,
+				A9A563FA21029FE5005EA4F9 /* InputEvent.hpp */,
 			);
-			path = DogFeedScheduler;
+			name = Input;
 			sourceTree = "<group>";
 		};
-		A9E1887C21A1BFC300D3D0A7 /* Washer */ = {
+		A9D0663721A6FF9200199CBA /* Output */ = {
+			isa = PBXGroup;
+			children = (
+				A9A563EE21029DBE005EA4F9 /* SevenSegmentDisplay.cpp */,
+				A9A563EF21029DBE005EA4F9 /* SevenSegmentDisplay.hpp */,
+				A9A563F321029EB5005EA4F9 /* Led.cpp */,
+				A9A563F421029EB5005EA4F9 /* Led.hpp */,
+			);
+			name = Output;
+			sourceTree = "<group>";
+		};
+		A9D0663821A6FFA500199CBA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A9A563FE2102A227005EA4F9 /* DateTimeUtilities.cpp */,
+				A9A563FF2102A227005EA4F9 /* DateTimeUtilities.hpp */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		A9D0663921A6FFD800199CBA /* Washer */ = {
 			isa = PBXGroup;
 			children = (
 				A9E1887D21A1BFEB00D3D0A7 /* WasherMonitor.cpp */,
@@ -171,6 +134,35 @@
 				A9E1888121A1F91000D3D0A7 /* WasherEventWindow.hpp */,
 			);
 			name = Washer;
+			sourceTree = "<group>";
+		};
+		A9D0663A21A7000A00199CBA /* Wiring Pi */ = {
+			isa = PBXGroup;
+			children = (
+				A9A563EC2102937F005EA4F9 /* WiringPiWrapper.hpp */,
+				A9A563EB2102937F005EA4F9 /* WiringPiWrapper.cpp */,
+			);
+			name = "Wiring Pi";
+			sourceTree = "<group>";
+		};
+		A9D0663B21A7007100199CBA /* Dog Feeding */ = {
+			isa = PBXGroup;
+			children = (
+				A9A563F621029F33005EA4F9 /* FeedingScheduler.cpp */,
+				A9A563F721029F33005EA4F9 /* FeedingScheduler.hpp */,
+				A981FB49216D50FF0097D3DE /* FeedingKeyValueStore.cpp */,
+				A981FB4A216D50FF0097D3DE /* FeedingKeyValueStore.hpp */,
+			);
+			name = "Dog Feeding";
+			sourceTree = "<group>";
+		};
+		A9E8ED9A21A6FEB4000A2F45 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				A949E5B0219FA2100003990D /* ICloudMessenger.cpp */,
+				A949E5B1219FA2100003990D /* ICloudMessenger.hpp */,
+			);
+			name = Alerts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
