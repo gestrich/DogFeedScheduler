@@ -10,7 +10,7 @@
 #include "ICloudMessenger.hpp"
 
 #define EVENT_COUNT_TRIGGERING_CYCLE 500
-#define EVENT_WINDOW_SECONDS 60
+#define EVENT_WINDOW_SECONDS 600
 
 WasherMonitor::WasherMonitor()
 :knockSensor(18), lastRecordedWindow(time(0), EVENT_WINDOW_SECONDS){

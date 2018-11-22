@@ -17,7 +17,7 @@ class WasherEventWindow {
 public:
     WasherEventWindow(time_t thisStartTime, int theseSeconds){
         startTime = thisStartTime;
-        seconds = thisStartTime + theseSeconds;
+        seconds = theseSeconds;
     };
     time_t startTime = 0;
     time_t seconds = 0;
