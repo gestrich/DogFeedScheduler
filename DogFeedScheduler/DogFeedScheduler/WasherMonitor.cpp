@@ -21,9 +21,10 @@ void WasherMonitor::checkForEvents(){
     if(knockSensorEvent && knockSensorEvent->eventType == LowToHigh){
 //        puts("Knock sensor event occurred");
         
-        WasherEventWindow current = currentWindow();
-        if(current == lastRecordedWindow){
-            //Same window - track event
+        
+        time_t timeNow = time(0);
+        if(lastRecordedWindow.windowIncludesTime(timeNow)){
+            //Last window still active - track event
             
             lastRecordedWindow.eventCount++;
             
@@ -33,11 +34,11 @@ void WasherMonitor::checkForEvents(){
             }
         } else {
             //New window
-            
+            WasherEventWindow newWindow = WasherEventWindow(timeNow, EVENT_WINDOW_SECONDS);
             if(state == CYCLE){
                 //Already cycling
                 
-                if(lastRecordedWindow.isOtherWindowAdjacent(current)){
+                if(lastRecordedWindow.isOtherWindowAdjacent(newWindow)){
                     //Assume still in cycle when events occur between adjacent windows.
                 } else {
                     //Break in windows since last event.
@@ -55,13 +56,8 @@ void WasherMonitor::checkForEvents(){
             }
             
             printf("starting new window. Old window count = %d\n", lastRecordedWindow.eventCount);
-            lastRecordedWindow = current;
+            lastRecordedWindow = newWindow;
             lastRecordedWindow.eventCount++;
         }
     }
-}
-
-WasherEventWindow WasherMonitor::currentWindow(){
-    time_t startTime = time(0);
-    return WasherEventWindow(startTime, EVENT_WINDOW_SECONDS);
 }

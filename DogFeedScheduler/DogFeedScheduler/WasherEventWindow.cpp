@@ -24,6 +24,11 @@ bool WasherEventWindow::isOtherWindowAdjacent(const WasherEventWindow& other){
     return false;
 }
 
+bool WasherEventWindow::windowIncludesTime(time_t timeToCheck){
+    time_t endTime = startTime + seconds;
+    return startTime <= timeToCheck && endTime >= timeToCheck;
+}
+
 bool WasherEventWindow::operator == (const WasherEventWindow & other){
     if((startTime == other.startTime) && (seconds == other.seconds)){
         return true;
