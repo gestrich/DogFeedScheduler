@@ -20,7 +20,8 @@ bool WasherEventWindow::isOtherWindowAdjacent(const WasherEventWindow& other){
         difference = other.startTime - startTime;
     }
     
-    if(difference < seconds){
+    time_t secondsInTwoCycles = seconds * 2;
+    if(difference < secondsInTwoCycles){
         return true;
     }
     
