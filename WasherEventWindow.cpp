@@ -13,15 +13,28 @@ bool WasherEventWindow::isOtherWindowAdjacent(const WasherEventWindow& other){
         return false;
     }
     
-    if( startTime == (other.startTime + seconds)){
-        return true; //other is right before this one
+    time_t difference = 0;
+    if(startTime > other.startTime){
+        difference = startTime - other.startTime;
+    } else {
+        difference = other.startTime - startTime;
     }
     
-    if( (startTime + seconds) == (other.startTime)){
-        return true; //other is right after this one
+    if(difference < seconds){
+        return true;
     }
-
+    
     return false;
+    
+//    if( startTime == (other.startTime + seconds)){
+//        return true; //other is right before this one
+//    }
+//
+//    if( (startTime + seconds) == (other.startTime)){
+//        return true; //other is right after this one
+//    }
+
+//    return false;
 }
 
 bool WasherEventWindow::windowIncludesTime(time_t timeToCheck){
