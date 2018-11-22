@@ -15,12 +15,12 @@
 #include <stdio.h>
 
 class WasherMonitor {
-//    WasherEventWindow lastRecordedWindow;
+    WasherEventWindow lastRecordedWindow;
     WasherEventWindow currentWindow();
 public:
     WasherMonitor();  
     InputDevice knockSensor;
-    void updatePins();
+    void checkForEvents();
 };
 
 

@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
             WasherMonitor washerMonitor = WasherMonitor();
             
             while(true) {
-                washerMonitor.updatePins();
+                washerMonitor.checkForEvents();
             }       
         } else {
             puts(instructionMessage.c_str());    

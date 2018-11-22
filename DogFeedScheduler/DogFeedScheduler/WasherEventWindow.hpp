@@ -15,12 +15,14 @@
 class WasherEventWindow {
     //Private Definitions
 public:
-    WasherEventWindow(time_t thisStartTime, time_t thisEndTime){
+    WasherEventWindow(time_t thisStartTime, int theseSeconds){
         startTime = thisStartTime;
-        endTime = thisEndTime;
+        seconds = thisStartTime + theseSeconds;
     };
     time_t startTime = 0;
-    time_t endTime = 0;
+    time_t seconds = 0;
+    int eventCount = 0;
+    bool operator==(const WasherEventWindow& other );
     
 };
 

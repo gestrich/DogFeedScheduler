@@ -8,3 +8,10 @@
 
 #include "WasherEventWindow.hpp"
 
+bool WasherEventWindow::operator == (const WasherEventWindow & other){
+    if((startTime == other.startTime) && (seconds == other.seconds)){
+        return true;
+    } else {
+        return false;
+    }
+}

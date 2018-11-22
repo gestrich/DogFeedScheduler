@@ -17,21 +17,26 @@
  */
 
 WasherMonitor::WasherMonitor()
-:knockSensor(18){
-//    lastRecordedWindow = currentWindow();
+:knockSensor(18), lastRecordedWindow(time(0), 1){
 }
 
-void WasherMonitor::updatePins(){
+void WasherMonitor::checkForEvents(){
     InputEvent *knockSensorEvent = knockSensor.checkForEvent();
     if(knockSensorEvent && knockSensorEvent->eventType == LowToHigh){
         puts("Knock sensor event occurred");
+        
+        WasherEventWindow current = currentWindow();
+        if(current == lastRecordedWindow){
+            lastRecordedWindow.eventCount++;
+        } else {
+            printf("starting new event. Old count = %d\n", lastRecordedWindow.eventCount);
+            lastRecordedWindow = currentWindow();
+            lastRecordedWindow.eventCount++;
+        }
     }
-    
-    currentWindow();
 }
 
 WasherEventWindow WasherMonitor::currentWindow(){
     time_t startTime = time(0);
-    time_t endTime = startTime + 1;
-    return WasherEventWindow(startTime, endTime);
+    return WasherEventWindow(startTime, 1);
 }
