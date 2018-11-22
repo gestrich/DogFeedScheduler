@@ -11,6 +11,7 @@
 
 #define EVENT_COUNT_TRIGGERING_CYCLE 500
 #define EVENT_WINDOW_SECONDS 600
+#define SECONDS_BEFORE_ALERTING 60*10
 
 WasherMonitor::WasherMonitor()
 :knockSensor(18), lastRecordedWindow(time(0), EVENT_WINDOW_SECONDS){
@@ -21,21 +22,18 @@ void WasherMonitor::checkForEvents(){
     if(knockSensorEvent && knockSensorEvent->eventType == LowToHigh){
 //        puts("Knock sensor event occurred");
         
-        
         time_t timeNow = time(0);
         if(lastRecordedWindow.windowIncludesTime(timeNow)){
             //Last window still active - track event
-            
-            lastRecordedWindow.eventCount++;
-            
             if(lastRecordedWindow.eventCount >= EVENT_COUNT_TRIGGERING_CYCLE){
-                state = CYCLE;
+                washer_state_value cycleArg = CYCLE;
+                lastState = WasherState(cycleArg);
                 puts("State set to CYCLE");
             }
         } else {
             //New window
             WasherEventWindow newWindow = WasherEventWindow(timeNow, EVENT_WINDOW_SECONDS);
-            if(state == CYCLE){
+            if(lastState.stateValue == CYCLE){
                 //Already cycling
                 
                 if(lastRecordedWindow.isOtherWindowAdjacent(newWindow)){
@@ -44,10 +42,11 @@ void WasherMonitor::checkForEvents(){
                     //Break in windows since last event.
                     //Assume Lid was opened.
                     puts("State set to None after lid opened.");
-                    state = NONE;
+                    washer_state_value cycleArg = NONE;
+                    lastState = WasherState(cycleArg);
                     static bool messageSent = false;
                     if(messageSent == false){
-                        ICloudMessenger().sendMessage("Washer needs emptied", "4123773856");
+                        ICloudMessenger().sendMessage("Washer likely just emptied", "4123773856");
                         messageSent = true;
                     }
                 }
@@ -57,7 +56,24 @@ void WasherMonitor::checkForEvents(){
             
             printf("starting new window. Old window count = %d\n", lastRecordedWindow.eventCount);
             lastRecordedWindow = newWindow;
-            lastRecordedWindow.eventCount++;
+        }
+        
+        lastRecordedWindow.eventCount++;
+        lastState.stateLastMovement = timeNow;
+    } else {
+        //No movement, check if message needs delivered
+
+        if(lastState.stateValue == CYCLE){
+            time_t timeNow = time(0);
+            time_t minimumTimeToAlert = lastState.stateLastMovement + SECONDS_BEFORE_ALERTING;
+            
+            if(timeNow >= minimumTimeToAlert){
+                static bool messageSent = false;
+                if(messageSent == false){
+                    ICloudMessenger().sendMessage("Washer needs emptied", "4123773856");
+                    messageSent = true;
+                }
+            }
         }
     }
 }

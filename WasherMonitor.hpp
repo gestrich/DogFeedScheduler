@@ -11,13 +11,9 @@
 
 #include "InputDevice.hpp"
 #include "WasherEventWindow.hpp"
+#include "WasherState.hpp"
 
 #include <stdio.h>
-
-enum washer_state {
-    NONE,
-    CYCLE
-};
 
 class WasherMonitor {
     WasherEventWindow lastRecordedWindow;
@@ -26,7 +22,7 @@ public:
     WasherMonitor();  
     InputDevice knockSensor;
     void checkForEvents();
-    washer_state state = NONE;
+    WasherState lastState = WasherState();
 };
 
 

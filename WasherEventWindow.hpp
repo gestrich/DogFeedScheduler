@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <ctime>
 
-class WasherEventWindow {
+    class WasherEventWindow {
     //Private Definitions
 public:
     WasherEventWindow(time_t thisStartTime, int theseSeconds){

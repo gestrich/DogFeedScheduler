@@ -24,7 +24,7 @@ public:
         lastProcessedWasHigh = high();
     };
     int gpioIndex = 0;
-    InputEvent * checkForEvent();
+    InputEvent * checkForEvent(); 
     
     bool high();
     void setHigh(bool high);
