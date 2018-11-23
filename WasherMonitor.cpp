@@ -67,6 +67,9 @@ void WasherMonitor::checkForEvents(){
             if(timeNow >= minimumTimeToAlert){
                 ICloudMessenger().sendMessage("Washer needs emptied", "4123773856");
             }
+            
+            washer_state_value cycleArg = NONE;
+            lastState = WasherState(cycleArg);
         }
     }
 }
