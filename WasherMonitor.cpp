@@ -11,7 +11,7 @@
 
 #define EVENT_COUNT_TRIGGERING_CYCLE 500
 #define EVENT_WINDOW_SECONDS 600
-#define SECONDS_BEFORE_ALERTING 60*10
+#define SECONDS_BEFORE_ALERTING 60*60*4
 
 WasherMonitor::WasherMonitor()
 :knockSensor(18), lastRecordedWindow(time(0), EVENT_WINDOW_SECONDS){
@@ -29,6 +29,7 @@ void WasherMonitor::checkForEvents(){
                 washer_state_value cycleArg = CYCLE;
                 lastState = WasherState(cycleArg);
                 puts("State set to CYCLE");
+                ICloudMessenger().sendMessage("State set to CYCLE", "4123773856");
             }
         } else {
             //New window
