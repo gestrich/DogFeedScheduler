@@ -27,12 +27,10 @@ int FeedingScheduler::idealFeedingCountToday(){
     int currentHour = DateTimeUtilities::currentHourIndex();
     if (currentHour >= 0 && currentHour <= 5){
         return 0; //Early Morning - no feeding
-    } else if (currentHour < 12){
+    } else if (currentHour < 17){
         return 1; //Morning
-    } else if (currentHour < 18){
-        return 2; // Afternoon
     } else {
-        return 3; //Evening
+        return 2; //Evening
     }
 }
 
