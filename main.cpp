@@ -10,6 +10,7 @@
 #include "Led.hpp"
 #include "FeedingScheduler.hpp"
 #include "WasherMonitor.hpp"
+#include "WaterMonitor.hpp"
 #include <stdio.h>
 
 
@@ -19,7 +20,8 @@ int main(int argc, char *argv[])
     
     std::string dogProgramName = "dog";
     std::string washerProgramName = "washer";
-    std::string instructionMessage = "Include program name to run: " + dogProgramName + ", " + washerProgramName; 
+    std::string waterProgramName = "water";
+    std::string instructionMessage = "Include program name to run: " + dogProgramName + ", " + washerProgramName + ", " + waterProgramName; 
     
     if(argc < 2){ 
         puts(instructionMessage.c_str());
@@ -39,6 +41,13 @@ int main(int argc, char *argv[])
             
             while(true) {
                 washerMonitor.checkForEvents();
+            }       
+        } else if (program == waterProgramName){
+            puts("***Starting Water Program***");
+            WaterMonitor waterMonitor = WaterMonitor();
+            
+            while(true) {
+                waterMonitor.checkForEvents();
             }       
         } else {
             puts(instructionMessage.c_str());    
