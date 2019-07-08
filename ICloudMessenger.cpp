@@ -24,3 +24,22 @@ void ICloudMessenger::sendMessage(string message, std::string number){
     fflush( stdout );
     system(fullCommand.c_str());
 }
+
+
+
+void ICloudMessenger::sendIMessage(string message, std::string number){
+    int maxMessages = 150;
+    static int messagesSent = 0;
+    if(messagesSent > maxMessages){
+        return;
+    }
+    messagesSent++;
+    std::string sshFirstPath = "ssh 'bill@billgesichsipro.fios-router.home' \"osascript ~/Desktop/shortcuts/imessage.scpt ";
+    std::string recipientPart = std::string("'") + number + std::string("' ");
+    std::string messagePart = std::string("'") + message + std::string("'");
+    std::string endPart = " \"";
+    std::string fullCommand = sshFirstPath + recipientPart + messagePart + endPart;
+    printf("%s", fullCommand.c_str());
+    fflush( stdout );
+    system(fullCommand.c_str());
+}

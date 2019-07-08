@@ -17,6 +17,7 @@ using namespace std;
 class ICloudMessenger {
 public:
     static void sendMessage(std::string message, std::string number);
+    static void sendIMessage(std::string message, std::string number);
 };
 
 #endif /* ICloudMessenger_hpp */
