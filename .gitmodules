@@ -1,0 +1,3 @@
+[submodule "libraries/RaspberryPi-mcp3008Spi"]
+	path = libraries/RaspberryPi-mcp3008Spi
+	url = https://github.com/halherta/RaspberryPi-mcp3008Spi.git
