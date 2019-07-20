@@ -19,19 +19,21 @@ void WaterMonitor::checkForEvents(){
     bool eventTriggered = false;
     time_t lastAlert = 0;
     int secondsBeforeAlerting = 30;// 60 * 60 * 3; // 3 hours
+    int onThreshhold = 10;
     
     while(true)
     {
         int a2dVal = SpiWrapper::test();
+        cout << "Current value is: " << a2dVal << endl;
         sleep(1);
         
         bool eventOccurred = false;
         if(this->alertForWater){
-            if(a2dVal > 1){
+            if(a2dVal > onThreshhold){
                 eventOccurred = true;
             }
         } else {
-            if(a2dVal < 1){
+            if(a2dVal < onThreshhold){
                 eventOccurred = true;
             }
         }
@@ -42,9 +44,9 @@ void WaterMonitor::checkForEvents(){
             time_t earliestTimeToAlert = lastAlert + secondsBeforeAlerting;
             
             if(timeNow >= earliestTimeToAlert){
-                cout << "Current value is: " << a2dVal << endl;
                 std::string firstPart = this->alertForWater ? "High " : "Low";
                 std::string message = firstPart + "WATER EVENT DETECTED: " + std::to_string(a2dVal);
+                cout << message << endl;
                 ICloudMessenger().sendIMessage(message, "4123773856");
                 ICloudMessenger().sendMessage(message, "4123773856");
                 lastAlert = time(0);
