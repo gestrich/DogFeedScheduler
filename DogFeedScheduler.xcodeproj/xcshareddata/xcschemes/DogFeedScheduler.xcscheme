@@ -63,7 +63,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "washer"
+            argument = "water"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

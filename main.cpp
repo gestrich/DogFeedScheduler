@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
             }       
         } else if (program == waterProgramName){
             puts("***Starting Water Program***");
-            WaterMonitor waterMonitor = WaterMonitor();
+            WaterMonitor waterMonitor = WaterMonitor(false);
             
             while(true) {
                 waterMonitor.checkForEvents();
