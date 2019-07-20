@@ -23,7 +23,6 @@ int SpiWrapper::test(){
     mcp3008Spi a2d("/dev/spidev0.0", SPI_MODE_0, 1000000, 8);
     int a2dChannel = 0;
     unsigned char data[3];
-    bool eventTriggered = false;
     data[0] = 1;  //  first byte transmitted -> start bit
     data[1] = 0b10000000 |( ((a2dChannel & 7) << 4)); // second byte transmitted -> (SGL/DIF = 1, D2=D1=D0=0)
     data[2] = 0; // third byte transmitted....don't care

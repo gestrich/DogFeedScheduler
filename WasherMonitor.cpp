@@ -14,7 +14,7 @@
 #define SECONDS_BEFORE_ALERTING 60*60*4
 
 WasherMonitor::WasherMonitor()
-:knockSensor(18), lastRecordedWindow(time(0), EVENT_WINDOW_SECONDS){
+:lastRecordedWindow(time(0), EVENT_WINDOW_SECONDS), knockSensor(18){
 }
 
 void WasherMonitor::checkForEvents(){
