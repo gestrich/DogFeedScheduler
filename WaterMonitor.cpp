@@ -16,9 +16,8 @@
 
 void WaterMonitor::checkForEvents(){
     
-    bool eventTriggered = false;
     time_t lastAlert = 0;
-    int secondsBeforeAlerting = 30;// 60 * 60 * 3; // 3 hours
+    int secondsBeforeAlerting = 60 * 60 * 3; // 3 hours
     int onThreshhold = 10;
     
     while(true)
