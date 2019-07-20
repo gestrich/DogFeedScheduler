@@ -44,7 +44,7 @@ void WaterMonitor::checkForEvents(){
             time_t earliestTimeToAlert = lastAlert + secondsBeforeAlerting;
             
             if(timeNow >= earliestTimeToAlert){
-                std::string firstPart = this->alertForWater ? "High " : "Low";
+                std::string firstPart = this->alertForWater ? "HIGH " : "LOW ";
                 std::string message = firstPart + "WATER EVENT DETECTED: " + std::to_string(a2dVal);
                 cout << message << endl;
                 ICloudMessenger().sendIMessage(message, "4123773856");
