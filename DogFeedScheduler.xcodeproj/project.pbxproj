@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A949E5B2219FA2100003990D /* ICloudMessenger.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A949E5B0219FA2100003990D /* ICloudMessenger.cpp */; };
 		A981FB4B216D50FF0097D3DE /* FeedingKeyValueStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A981FB49216D50FF0097D3DE /* FeedingKeyValueStore.cpp */; };
+		A98B3D2422E3651400E55CEC /* WaterMonitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A98B3D2222E3651400E55CEC /* WaterMonitor.cpp */; };
+		A98B3D2922E365BC00E55CEC /* SPIWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A98B3D2722E365BC00E55CEC /* SPIWrapper.cpp */; };
 		A9A563E221028A77005EA4F9 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563E121028A77005EA4F9 /* main.cpp */; };
 		A9A563EA210292EB005EA4F9 /* InputDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563E8210292EB005EA4F9 /* InputDevice.cpp */; };
 		A9A563ED2102937F005EA4F9 /* WiringPiWrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563EB2102937F005EA4F9 /* WiringPiWrapper.cpp */; };
@@ -39,6 +41,10 @@
 		A949E5B1219FA2100003990D /* ICloudMessenger.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ICloudMessenger.hpp; sourceTree = "<group>"; };
 		A981FB49216D50FF0097D3DE /* FeedingKeyValueStore.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FeedingKeyValueStore.cpp; sourceTree = "<group>"; };
 		A981FB4A216D50FF0097D3DE /* FeedingKeyValueStore.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FeedingKeyValueStore.hpp; sourceTree = "<group>"; };
+		A98B3D2222E3651400E55CEC /* WaterMonitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WaterMonitor.cpp; sourceTree = "<group>"; };
+		A98B3D2322E3651400E55CEC /* WaterMonitor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = WaterMonitor.hpp; sourceTree = "<group>"; };
+		A98B3D2722E365BC00E55CEC /* SPIWrapper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SPIWrapper.cpp; sourceTree = "<group>"; };
+		A98B3D2822E365BC00E55CEC /* SPIWrapper.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SPIWrapper.hpp; sourceTree = "<group>"; };
 		A9A563DE21028A77005EA4F9 /* DogFeedScheduler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DogFeedScheduler; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A563E121028A77005EA4F9 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		A9A563E8210292EB005EA4F9 /* InputDevice.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputDevice.cpp; sourceTree = "<group>"; };
@@ -74,6 +80,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A98B3D2122E364F200E55CEC /* Water */ = {
+			isa = PBXGroup;
+			children = (
+				A98B3D2222E3651400E55CEC /* WaterMonitor.cpp */,
+				A98B3D2322E3651400E55CEC /* WaterMonitor.hpp */,
+			);
+			name = Water;
+			sourceTree = "<group>";
+		};
+		A98B3D2622E365A000E55CEC /* SPI */ = {
+			isa = PBXGroup;
+			children = (
+				A98B3D2822E365BC00E55CEC /* SPIWrapper.hpp */,
+				A98B3D2722E365BC00E55CEC /* SPIWrapper.cpp */,
+			);
+			name = SPI;
+			sourceTree = "<group>";
+		};
 		A9A563D521028A77005EA4F9 = {
 			isa = PBXGroup;
 			children = (
@@ -81,8 +105,10 @@
 				A9D0663B21A7007100199CBA /* Dog Feeding */,
 				A9D0663621A6FF7B00199CBA /* Input */,
 				A9D0663721A6FF9200199CBA /* Output */,
+				A98B3D2622E365A000E55CEC /* SPI */,
 				A9D0663821A6FFA500199CBA /* Utilities */,
 				A9D0663921A6FFD800199CBA /* Washer */,
+				A98B3D2122E364F200E55CEC /* Water */,
 				A9D0663A21A7000A00199CBA /* Wiring Pi */,
 				A9A563E121028A77005EA4F9 /* main.cpp */,
 				A9A563DF21028A77005EA4F9 /* Products */,
@@ -234,10 +260,12 @@
 				A9D0663E21A7035F00199CBA /* WasherState.cpp in Sources */,
 				A9A563ED2102937F005EA4F9 /* WiringPiWrapper.cpp in Sources */,
 				A9A563F021029DBE005EA4F9 /* SevenSegmentDisplay.cpp in Sources */,
+				A98B3D2422E3651400E55CEC /* WaterMonitor.cpp in Sources */,
 				A949E5B2219FA2100003990D /* ICloudMessenger.cpp in Sources */,
 				A9A563E221028A77005EA4F9 /* main.cpp in Sources */,
 				A9A563F821029F33005EA4F9 /* FeedingScheduler.cpp in Sources */,
 				A9A563F521029EB5005EA4F9 /* Led.cpp in Sources */,
+				A98B3D2922E365BC00E55CEC /* SPIWrapper.cpp in Sources */,
 				A9A564002102A227005EA4F9 /* DateTimeUtilities.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,6 +317,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"SPI_DISABLED=1",
 					"WIRING_PI_DISABLED=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -343,7 +372,10 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = "WIRING_PI_DISABLED=1";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"WIRING_PI_DISABLED=1",
+					"SPI_DISABLED=1",
+				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
