@@ -1,4 +1,4 @@
 #!/bin/bash
 
-/usr/local/bin/gpio -g mode 12 out
-/usr/local/bin/gpio -g write 12 1
+`which gpio` -g mode 12 out
+`which gpio` -g write 12 1
