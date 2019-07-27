@@ -8,7 +8,8 @@
 
 #include "WiringPiWrapper.hpp"
 
-#if !defined(WIRING_PI_DISABLED)
+#ifdef WIRING_PI_DISABLED
+#else
 #include <wiringPi.h>
 #endif
 
