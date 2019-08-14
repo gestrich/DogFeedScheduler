@@ -10,21 +10,15 @@
 #define WaterMonitor_hpp
 
 #include "InputDevice.hpp"
-
+#include "Led.hpp"
 #include <stdio.h>
-/*InputDevice(int index){
-    WiringPiWrapper::setupGPIO();
-    gpioIndex = index;
-    WiringPiWrapper::setPinModePi(index, false);
-    lastProcessedWasHigh = high();
-};
-int gpioIndex = 0;
-*/
+
 class WaterMonitor {
 public:
     WaterMonitor(bool waterAlert){
         alertForWater = waterAlert;
     }
+    Led powerOutput = Led(18);
     bool alertForWater;
     void checkForEvents();
 };

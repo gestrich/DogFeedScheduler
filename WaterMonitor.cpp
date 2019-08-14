@@ -23,9 +23,9 @@ void WaterMonitor::checkForEvents(){
     
     while(true)
     {
+        powerOutput.setMode(LedSolid);
         int a2dVal = SpiWrapper::test();
         cout << "Current value is: " << a2dVal << endl;
-        sleep(1);
         
         bool eventOccurred = false;
         if(this->alertForWater){
@@ -54,6 +54,9 @@ void WaterMonitor::checkForEvents(){
                 cout << "Skipping alert as too early" << endl;
             }
         }
+        
+        powerOutput.setMode(LedOff);
+        sleep(10);
     }
     
 }
