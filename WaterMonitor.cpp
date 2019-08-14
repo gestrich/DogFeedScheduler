@@ -57,7 +57,7 @@ void WaterMonitor::checkForEvents(){
         }
         
         powerOutput.setMode(LedOff);
-        sleep(10);
+        sleep(60*60*3);
     }
     
 }
