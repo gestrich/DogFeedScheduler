@@ -24,6 +24,7 @@ void WaterMonitor::checkForEvents(){
     while(true)
     {
         powerOutput.setMode(LedSolid);
+        sleep(5);
         int a2dVal = SpiWrapper::test();
         cout << "Current value is: " << a2dVal << endl;
         
