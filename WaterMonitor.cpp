@@ -19,7 +19,7 @@ void WaterMonitor::checkForEvents(){
     time_t lastAlert = 0;
     int secondsBeforeAlerting = 60 * 60 * 3; // 3 hours
     //int onThreshhold = 10; //With on resitor
-    int onThreshhold = 500;
+    int onThreshhold = 300; //About 500 when full with resitor... About 250 when 1/4" above sensor bottom
     
     while(true)
     {
