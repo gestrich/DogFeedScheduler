@@ -15,13 +15,16 @@
 class SevenSegementDisplay {
 public:
     SevenSegementDisplay();
-    int top = 20;
-    int topLeft = 24;
-    int topRight = 23;
+    //Top Pin Row - middle is ground
     int middle = 16;
-    int bottomLeft = 17;
+    int topLeft = 12;
+    int top = 20;
+    int topRight = 21;
+   
+    //Bottom Pin Row - middle likely another ground? 
+    int bottomLeft = 6;
+    int bottom = 13;
     int bottomRight = 19;
-    int bottom = 21;
     int dot = 26;
     void showDigit(int digit);
 };

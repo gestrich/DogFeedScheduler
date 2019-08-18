@@ -10,6 +10,7 @@
 #include <string>
 #include "ICloudMessenger.hpp"
 #include "FeedingKeyValueStore.hpp"
+#include "unistd.h"
 
 using namespace std;
 
