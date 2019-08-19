@@ -1,2 +1,2 @@
-`which gpio` mode 12 out
-`which gpio` -g write 12 0
+`which gpio` mode 18 out
+`which gpio` -g write 18 0

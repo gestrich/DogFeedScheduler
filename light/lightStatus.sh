@@ -1,1 +1,1 @@
-gpio -g read 12
+gpio -g read 18

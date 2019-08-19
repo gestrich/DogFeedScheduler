@@ -18,7 +18,7 @@ public:
     WaterMonitor(bool waterAlert){
         alertForWater = waterAlert;
     }
-    Led powerOutput = Led(18);
+    Led powerOutput = Led(4);
     bool alertForWater;
     void checkForEvents();
 };

@@ -29,7 +29,7 @@ public:
     Led led1;  
     static void testCPlusPlusFunction()
     {
-        puts("Test C++ function");
+        //puts("Test C++ function");
     }
 };
 

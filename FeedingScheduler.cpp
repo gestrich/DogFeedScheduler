@@ -19,7 +19,7 @@ void testCcallback(void) {
 }
 
 FeedingScheduler::FeedingScheduler()
-:door(25), decrementButton(6), led1(18){
+:door(5), decrementButton(25), led1(27){
     WiringPiWrapper::registerCallback(decrementButton.gpioIndex, EdgeFalling, &testCPlusPlusFunction);
     segmentDisplay = SevenSegementDisplay();
 }
@@ -47,7 +47,6 @@ int FeedingScheduler::completedFeedingCountToday(){
 
 void FeedingScheduler::updatePins(){
     int completed = completedFeedingCountToday();
-    
     FeedingKeyValueStore feedingsCompletedStore = FeedingKeyValueStore("feedingsComplete.txt");
     feedingsCompletedStore.updateValue(std::to_string(completed));
     
@@ -98,7 +97,7 @@ void FeedingScheduler::updatePins(){
     led1.updatePinOutput();
     
     InputEvent *decrementEvent = decrementButton.checkForEvent();
-    if(decrementEvent && decrementEvent->eventType == LowToHigh && events.empty() == false){
+    if(decrementEvent && decrementEvent->eventType == HighToLow && events.empty() == false){
         events.pop_back();
     }
     
