@@ -20,6 +20,7 @@
 		A9A563FB21029FE5005EA4F9 /* InputEvent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563F921029FE5005EA4F9 /* InputEvent.cpp */; };
 		A9A564002102A227005EA4F9 /* DateTimeUtilities.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9A563FE2102A227005EA4F9 /* DateTimeUtilities.cpp */; };
 		A9D0663E21A7035F00199CBA /* WasherState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D0663C21A7035F00199CBA /* WasherState.cpp */; };
+		A9D26EC7230E1C1200425688 /* SimpleMovementMonitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D26EC6230E1C1200425688 /* SimpleMovementMonitor.cpp */; };
 		A9E1887F21A1BFEB00D3D0A7 /* WasherMonitor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9E1887D21A1BFEB00D3D0A7 /* WasherMonitor.cpp */; };
 		A9E1888221A1F91000D3D0A7 /* WasherEventWindow.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9E1888021A1F91000D3D0A7 /* WasherEventWindow.cpp */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		A9A563FF2102A227005EA4F9 /* DateTimeUtilities.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = DateTimeUtilities.hpp; sourceTree = "<group>"; };
 		A9D0663C21A7035F00199CBA /* WasherState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WasherState.cpp; sourceTree = "<group>"; };
 		A9D0663D21A7035F00199CBA /* WasherState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WasherState.hpp; sourceTree = "<group>"; };
+		A9D26EC5230E1C1200425688 /* SimpleMovementMonitor.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SimpleMovementMonitor.hpp; sourceTree = "<group>"; };
+		A9D26EC6230E1C1200425688 /* SimpleMovementMonitor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimpleMovementMonitor.cpp; sourceTree = "<group>"; };
 		A9E1887D21A1BFEB00D3D0A7 /* WasherMonitor.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WasherMonitor.cpp; sourceTree = "<group>"; };
 		A9E1887E21A1BFEB00D3D0A7 /* WasherMonitor.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = WasherMonitor.hpp; sourceTree = "<group>"; };
 		A9E1888021A1F91000D3D0A7 /* WasherEventWindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = WasherEventWindow.cpp; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		A9A563D521028A77005EA4F9 = {
 			isa = PBXGroup;
 			children = (
+				A9D26EC4230E1BC800425688 /* Air Conditioner */,
 				A9E8ED9A21A6FEB4000A2F45 /* Alerts */,
 				A9D0663B21A7007100199CBA /* Dog Feeding */,
 				A9D0663621A6FF7B00199CBA /* Input */,
@@ -187,6 +191,15 @@
 			name = "Dog Feeding";
 			sourceTree = "<group>";
 		};
+		A9D26EC4230E1BC800425688 /* Air Conditioner */ = {
+			isa = PBXGroup;
+			children = (
+				A9D26EC6230E1C1200425688 /* SimpleMovementMonitor.cpp */,
+				A9D26EC5230E1C1200425688 /* SimpleMovementMonitor.hpp */,
+			);
+			name = "Air Conditioner";
+			sourceTree = "<group>";
+		};
 		A9E8ED9A21A6FEB4000A2F45 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +272,7 @@
 				A981FB4B216D50FF0097D3DE /* FeedingKeyValueStore.cpp in Sources */,
 				A9D0663E21A7035F00199CBA /* WasherState.cpp in Sources */,
 				A9A563ED2102937F005EA4F9 /* WiringPiWrapper.cpp in Sources */,
+				A9D26EC7230E1C1200425688 /* SimpleMovementMonitor.cpp in Sources */,
 				A9A563F021029DBE005EA4F9 /* SevenSegmentDisplay.cpp in Sources */,
 				A98B3D2422E3651400E55CEC /* WaterMonitor.cpp in Sources */,
 				A949E5B2219FA2100003990D /* ICloudMessenger.cpp in Sources */,

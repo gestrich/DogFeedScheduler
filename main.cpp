@@ -11,6 +11,7 @@
 #include "FeedingScheduler.hpp"
 #include "WasherMonitor.hpp"
 #include "WaterMonitor.hpp"
+#include "SimpleMovementMonitor.hpp"
 #include <stdio.h>
 
 
@@ -21,7 +22,8 @@ int main(int argc, char *argv[])
     std::string dogProgramName = "dog";
     std::string washerProgramName = "washer";
     std::string waterProgramName = "water";
-    std::string instructionMessage = "Include program name to run: " + dogProgramName + ", " + washerProgramName + ", " + waterProgramName; 
+    std::string airProgramName = "air";
+    std::string instructionMessage = "Include program name to run: " + dogProgramName + ", " + washerProgramName + ", " + waterProgramName + ", " + airProgramName;
     
     if(argc < 2){ 
         puts(instructionMessage.c_str());
@@ -48,7 +50,14 @@ int main(int argc, char *argv[])
             
             while(true) {
                 waterMonitor.checkForEvents();
-            }       
+            }
+        } else if (program == airProgramName){
+            puts("***Starting Air Conditioner Program***");
+            SimpleMovementMonitor movementMonitor = SimpleMovementMonitor();
+            
+            while(true) {
+                movementMonitor.checkForEvents();
+            }
         } else {
             puts(instructionMessage.c_str());    
         }
