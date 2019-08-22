@@ -8,6 +8,7 @@
 
 #include "SimpleMovementMonitor.hpp"
 #include "ICloudMessenger.hpp"
+#include "FeedingKeyValueStore.hpp"
 
 SimpleMovementMonitor::SimpleMovementMonitor()
 : knockSensor(2){
@@ -20,5 +21,7 @@ void SimpleMovementMonitor::checkForEvents(){
         puts("Knock sensor event occurred");
         time_t timeNow = time(0);
         lastMotionTime = timeNow;
+        FeedingKeyValueStore feedingsCompletedStore = FeedingKeyValueStore("ac_motion.txt");
+        feedingsCompletedStore.updateValue(std::to_string(timeNow));
     }
 }
