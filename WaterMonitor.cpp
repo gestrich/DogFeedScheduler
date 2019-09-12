@@ -20,12 +20,13 @@ void WaterMonitor::checkForEvents(){
     int secondsBeforeAlerting = 60 * 60 * 3; // 3 hours
     //int onThreshhold = 10; //With on resitor
     //int onThreshhold = 300; //About 500 when full with resitor... About 250 when 1/4" above sensor bottom
-    int onThreshhold = 10; //Without resitor, reading 83 about 3/4 full
+    //int onThreshhold = 10; //Without resitor, reading 83 about 3/4 full
+    int onThreshhold = 10; //Without resitor, reading 58 about 1/2 full
      
     while(true)
     {
         powerOutput.setMode(LedSolid);
-        sleep(5);
+        sleep(10);
         int a2dVal = SpiWrapper::test();
         cout << "Current value is: " << a2dVal << endl;
         
@@ -58,7 +59,7 @@ void WaterMonitor::checkForEvents(){
         }
         
         powerOutput.setMode(LedOff);
-        //sleep(60*60*3);
+        sleep(60*60*3);
     }
     
 }
