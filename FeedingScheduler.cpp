@@ -71,8 +71,8 @@ void FeedingScheduler::updatePins(){
             //Increased    
             int currentHour = DateTimeUtilities::currentHourIndex();
             if(currentHour >= 8){
-                std::string message = std::string("The babies are hungry.");
-                ICloudMessenger::sendMessage(message, "4123773856"); //Alert   
+                //std::string message = std::string("The babies are hungry.");
+                //ICloudMessenger::sendMessage(message, "4123773856"); //Alert
             }
         }
     }
