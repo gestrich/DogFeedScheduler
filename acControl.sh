@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Note: At the season, I had to run this command 1 time: sudo /etc/init.d/lircd restart
+# I found that from this site: https://stackoverflow.com/questions/37897868/lirc-irsend-could-not-connect-to-socket-irsend-no-such-file-or-directory
+
 function status(){
   now="$(date +%s)"; 
   lastMotion="$(cat /home/pi/Desktop/ac_motion.txt)"
@@ -13,16 +16,16 @@ function status(){
 
 function turnOn(){
   isOn="$(status)"
-  if [[ isOn -eq 0 ]]; then
+  #if [[ isOn -eq 0 ]]; then
     ~/dev/DogFeedScheduler/remote_command.sh haier Power 
-  fi
+  #fi
 }
 
 function turnOff(){
   isOn="$(status)"
-  if [[ isOn -eq 1 ]]; then
+  #if [[ isOn -eq 1 ]]; then
     ~/dev/DogFeedScheduler/remote_command.sh haier Power 
-  fi
+  #fi
 }
 
 # Check if the function exists (bash specific)
